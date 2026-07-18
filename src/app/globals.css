@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-heading);
+}
+
+
+body {
+  font-family: var(--font-body);
+}
+
+
+
+
+@theme {
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-heading: hsl(var(--heading));
+  --color-heading-soft: hsl(var(--heading-soft));
+
+
+  --color-text-main: hsl(var(--text-main));
+  --color-text-secondary: hsl(var(--text-secondary));
+  --color-text-muted: hsl(var(--text-muted));
+
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+
+  --color-border: hsl(var(--border));
+
+  --color-footer: hsl(var(--footer));
+  --color-footer-foreground: hsl(var(--footer-foreground));
+  --color-footer-muted: hsl(var(--footer-muted));
+  --color-footer-border: hsl(var(--footer-border));
+
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-hover: hsl(var(--primary-hover));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+
+  --color-gold: hsl(var(--gold));
+  --color-gold-soft: hsl(var(--gold-soft));
+  --color-gold-muted: hsl(var(--gold-muted));
+
+
+  --color-desert: hsl(var(--desert));
+
+  --color-surface-soft: hsl(var(--surface-soft));
+
+}
+
+
+
+
+:root {
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-inter);
+
+  /* ─── BASE ─── */
+  --background: 42 43% 93%;
+  /* #FAF7F0 - blanc ivoire pur, presque blanc */
+
+  --foreground: 28 25% 10%;
+  /* #1E1610 - noir chaud profond */
+
+  /* ─── HEADINGS ─── */
+  --heading: 28 28% 8%;
+  /* #170F08 - presque noir */
+
+  --heading-soft: 33 35% 32%;
+  /* #6B5238 - bronze foncé lisible */
+
+  /* ─── TEXT ─── */
+  --text-main: 28 25% 10%;
+  /* #1E1610 - même que foreground */
+
+  
+  --footer: 30 25% 15%;
+  /* #30251B */
+
+
+  --footer-foreground: 42 43% 93%;
+  /* #F5F1E8 */
+
+
+  --footer-muted: 38 25% 72%;
+  /* #CDBE9F */
+
+
+  --footer-border: 35 20% 25%;
+  /* #514131 */
+
+  --text-secondary: 30 20% 35%;
+  /* #6B5A48 - brun moyen */
+
+  --text-muted: 32 15% 50%;
+  /* #8C7D6E - gris chaud */
+
+  /* ─── SURFACES ─── */
+  --card: 45 50% 99%;
+  /* #FFFEF9 - blanc presque pur */
+
+  --card-foreground: 28 25% 10%;
+
+  --muted: 40 28% 93%;
+  /* #EFE9DC - gris beige très léger */
+
+  --muted-foreground: 30 20% 35%;
+
+  --border: 36 22% 85%;
+  /* #DEDAD0 - bordure subtile */
+
+  /* ─── PRIMARY - Or Profond ─── */
+  --primary: 36 50% 36%;
+  /* #8A6624 - or foncé, lisible */
+
+  --primary-hover: 36 55% 28%;
+  /* #70511A - plus foncé au hover */
+
+  --primary-foreground: 45 50% 97%;
+  /* blanc chaud sur fond or */
+
+  /* ─── SECONDARY - Nuit Marocaine ─── */
+  --secondary: 28 28% 18%;
+  /* #382A1E - brun très foncé */
+
+  --secondary-foreground: 45 40% 95%;
+  /* ivoire clair sur fond sombre */
+
+  /* ─── GOLD SYSTEM ─── */
+  --gold: 36 52% 40%;
+  /* #996E26 - or pur */
+
+  --gold-soft: 35 32% 34%;
+  /* #6E5534 - or bronzé foncé, lisible */
+
+  --gold-muted: 40 42% 90%;
+  /* #EEE4CE - fond or très léger */
+
+  /* ─── DESERT ─── */
+  --desert: 26 45% 50%;
+  /* #BD8040 - terracotta désert */
+
+  /* ─── SURFACE SOFT ─── */
+  --surface-soft: 42 35% 95%;
+  /* #F5F0E6 */
+}
+
+
+html,
+body {
+  margin:0;
+  padding:0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--gold-soft));
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--gold-soft));
+}
