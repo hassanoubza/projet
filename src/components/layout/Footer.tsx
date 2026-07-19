@@ -64,12 +64,12 @@ export default function Footer() {
               Popular Tours
             </h3>
 
-            <ul className="mt-6 space-y-4">
+            <ul className="mt-6">
               {FOOTER_TOURS.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="inline-flex min-h-11 w-fit items-center py-2 text-sm font-medium text-footer-foreground transition hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                    className="text-sm inline-flex min-h-11 font-medium text-footer-foreground/85 transition hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                   >
                     {item.label}
                   </Link>
@@ -83,12 +83,12 @@ export default function Footer() {
               Useful Links
             </h3>
 
-            <ul className="mt-6 space-y-4">
+            <ul className="mt-6">
               {FOOTER_LINKS.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="inline-flex min-h-11 w-fit items-center py-2 text-sm font-medium text-footer-foreground transition hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                    className="text-sm inline-flex min-h-11 font-medium text-footer-foreground/85 transition hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                   >
                     {item.label}
                   </Link>
@@ -126,10 +126,10 @@ export default function Footer() {
                 <Mail className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
 
                 <a
-                  href="mailto:tripstomarrakech@tripstomarrakech.com"
+                  href="mailto:Deluxemoroccotrips@gmail.com"
                   className="break-all transition hover:text-gold"
                 >
-                  tripstomarrakech@tripstomarrakech.com
+                  tripstpmarakech@gmail.com
                 </a>
               </li>
             </ul>
@@ -159,13 +159,14 @@ export default function Footer() {
                 <div className="mt-3 flex items-center gap-3">
                   <div className="flex items-centerpx-3">
                     <a
+                      aria-label="View Trips to Marrakech reviews on TripAdvisor"
                       href={TRIPADVISOR_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <Image
                         src="/images/tripadvisor-logo-circle-owl-icon-black-green-1536x1536-1.webp"
-                        alt="Tripadvisor"
+                        alt=""
                         width={65}
                         height={65}
                         className="h-20 w-20 object-contain"

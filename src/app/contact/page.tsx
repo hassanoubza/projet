@@ -31,13 +31,6 @@ export default function ContactPage(): React.JSX.Element {
   };
 
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
-    event.preventDefault();
-    console.log("Form submitted:", form);
-
-  }
-
-
   return (
     <section className="bg-background px-4 py-12 text-foreground sm:px-6 lg:px-8 lg:py-16">
       <section className="mx-auto max-w-6xl">
@@ -68,7 +61,7 @@ export default function ContactPage(): React.JSX.Element {
               WhatsApp.
             </p>
 
-            <form onSubmit={handleSubmit} className="mt-7 space-y-5">
+            <form  className="mt-7 space-y-5">
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
                   <label

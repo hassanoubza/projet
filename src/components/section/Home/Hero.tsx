@@ -16,7 +16,7 @@ export default async function Hero(): Promise<React.JSX.Element> {
         alt="Place Jemaa el-Fna animée au coucher du soleil, Marrakech"
         fill
         preload
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+        sizes="100vw"
         quality={75}
         className="object-cover"
       />
