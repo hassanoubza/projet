@@ -88,7 +88,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm font-medium text-footer-foreground/85 transition hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                    className="text-sm min-h-11 font-medium text-footer-foreground transition hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                   >
                     {item.label}
                   </Link>

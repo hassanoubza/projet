@@ -166,7 +166,7 @@ function Logo({ onClick }: { onClick?: () => void }): React.JSX.Element {
         src="/logo.png"
         alt=""
         width={180}
-        height={50}
+        height={60}
         sizes="(max-width: 1023px) 112px, 144px"
         className="h-auto w-28 lg:w-36"
       />

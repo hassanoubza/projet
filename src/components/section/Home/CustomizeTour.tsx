@@ -10,19 +10,8 @@ export default function CustomizeTour() {
   const [duration, setDuration] = useState("Any duration");
 
 
-  const whatsappNumber = "212600000000";
-
-  const whatsappMessage = `Hello Trips to Marrakech,
-
-    I would like to customize a private Morocco tour.
-
-    Departure city: ${city}
-    Number of travelers: ${travelers}
-    Duration: ${duration}
-
-    Could you please send me more information and help me plan my trip?
-
-    Thank you.`;
+  const whatsappNumber = "+212643577845";
+const whatsappMessage = `Hello Trips to Marrakech, I would like to customize a private Morocco tour. Departure city: ${city} Number of travelers: ${travelers} Duration: ${duration} Could you please send me more information and help me plan my trip? Thank you.`;
 
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -77,10 +66,11 @@ export default function CustomizeTour() {
                 </label>
 
                 <div className=" mt-2 flex items-center gap-3  ">
-                  <MapPin className="h-5 w-5 text-gold" />
+                  <MapPin className="h-5 w-5 text-gold" aria-hidden="true" />
 
                   <select
                     id="departure-city"
+                    name="departureCity"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     className="w-full bg-transparent text-sm
@@ -108,10 +98,11 @@ export default function CustomizeTour() {
                 </label>
 
                 <div className=" mt-2 flex items-center gap-3 ">
-                  <Users className="h-5 w-5 text-gold" />
+                  <Users className="h-5 w-5 text-gold" aria-hidden="true" />
 
                   <input
                     id="travelers"
+                    name="travelers"
                     type="number"
                     min={1}
                     value={travelers}
@@ -132,10 +123,11 @@ export default function CustomizeTour() {
                 </label>
 
                 <div className="   mt-2   flex   items-center   gap-3 ">
-                  <Clock className="h-5 w-5 text-gold" />
+                  <Clock className="h-5 w-5 text-gold" aria-hidden="true" />
 
                   <select
                     id="duration"
+                    name="duration"
                     value={duration}
                     onChange={(e) => setDuration(e.target.value)}
                     className="
@@ -180,29 +172,20 @@ export default function CustomizeTour() {
                   "
                 >
                   Customize Tour
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
 
                 <a
                   href={whatsappUrl}
-                  className="
-                  inline-flex
-                  flex-1
-                  items-center
-                  justify-center
-                  gap-2
-                  rounded-full
-                  border border-border
-                  px-6
-                  py-3
-                  text-sm
-                  font-bold
-                  text-heading
-                  transition
-                  hover:border-gold
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className=" inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-sm  font-bold  text-heading  transition  hover:border-gold
                   "
                 >
-                  <MessageCircle className="h-4 w-4 text-gold" />
+                  <MessageCircle
+                    className="h-4 w-4 text-gold"
+                    aria-hidden="true"
+                  />
                   WhatsApp
                 </a>
               </div>

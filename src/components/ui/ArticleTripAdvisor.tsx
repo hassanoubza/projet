@@ -13,7 +13,6 @@ function ArticleTripAdvisor({ review, index,}: {
 }): React.JSX.Element {
   return (
     <article
-      key={`${review.name}-${review.title}`}
       className={`group rounded-xl bg-card p-6 shadow-sm ring-1 ring-border transition-all duration-300 hover:shadow-lg sm:p-7 ${
         index === 1 ? "hidden sm:block" : ""
       } ${index === 2 ? "hidden lg:block" : ""}`}
@@ -23,7 +22,9 @@ function ArticleTripAdvisor({ review, index,}: {
           <h3 className="text-lg font-semibold text-heading">{review.name}</h3>
 
           <div className="flex items-center gap-2">
-            <div className="flex text-gold">★★★★★</div>
+            <div aria-label="5 out of 5 stars" className="flex text-primary">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
 
             <span className="text-sm font-medium text-foreground">
               Verified Review
@@ -36,10 +37,10 @@ function ArticleTripAdvisor({ review, index,}: {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Read ${review.name}'s verified review on TripAdvisor`}
-          className="  flex h-11 w-11 items-center justify-center rounded-full border border-gold  bg-primary  transition hover:scale-105 hover:border-gold hover:bg-primary-hover"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-primary bg-primary transition hover:scale-105 hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         >
           <SiTripadvisor
-            className="h-5 w-5 text-[#34E0A1]"
+            className="h-5 w-5 text-primary-foreground"
             aria-hidden="true"
           />
         </a>
@@ -59,11 +60,10 @@ function ArticleTripAdvisor({ review, index,}: {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Read ${review.name}'s verified review on TripAdvisor`}
-          className="text-sm font-semibold text-heading-soft transition-colors hover:text-gold-soft"
+          className="text-sm font-semibold text-heading transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         >
           Read on Tripadvisor
         </a>
-
         <span className="h-1.5 w-1.5 rounded-full bg-gold-soft/70 transition-transform duration-300 group-hover:scale-150" />
       </div>
     </article>
