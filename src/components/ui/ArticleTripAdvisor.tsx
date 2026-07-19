@@ -22,7 +22,11 @@ function ArticleTripAdvisor({ review, index,}: {
           <h3 className="text-lg font-semibold text-heading">{review.name}</h3>
 
           <div className="flex items-center gap-2">
-            <div aria-label="5 out of 5 stars" className="flex text-primary">
+            <div
+              role="img"
+              aria-label="5 out of 5 stars"
+              className="flex text-primary"
+            >
               <span aria-hidden="true">★★★★★</span>
             </div>
 

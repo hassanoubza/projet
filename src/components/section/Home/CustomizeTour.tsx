@@ -10,7 +10,7 @@ export default function CustomizeTour() {
   const [duration, setDuration] = useState("Any duration");
 
 
-  const whatsappNumber = "+212643577845";
+  const whatsappNumber = "212643577845";
 const whatsappMessage = `Hello Trips to Marrakech, I would like to customize a private Morocco tour. Departure city: ${city} Number of travelers: ${travelers} Duration: ${duration} Could you please send me more information and help me plan my trip? Thank you.`;
 
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;

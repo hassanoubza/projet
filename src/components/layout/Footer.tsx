@@ -69,7 +69,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm font-medium text-footer-foreground/85 transition hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                    className="inline-flex min-h-11 w-fit items-center py-2 text-sm font-medium text-footer-foreground transition hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                   >
                     {item.label}
                   </Link>
@@ -88,7 +88,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm min-h-11 font-medium text-footer-foreground transition hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                    className="inline-flex min-h-11 w-fit items-center py-2 text-sm font-medium text-footer-foreground transition hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                   >
                     {item.label}
                   </Link>
@@ -126,10 +126,10 @@ export default function Footer() {
                 <Mail className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
 
                 <a
-                  href="mailto:Deluxemoroccotrips@gmail.com"
+                  href="mailto:tripstomarrakech@tripstomarrakech.com"
                   className="break-all transition hover:text-gold"
                 >
-                  tripstpmarakech@gmail.com
+                  tripstomarrakech@tripstomarrakech.com
                 </a>
               </li>
             </ul>

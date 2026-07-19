@@ -119,7 +119,7 @@ export default function TripAdvisorReviews(): React.JSX.Element {
               type="button"
               aria-label="Previous reviews"
               onClick={goToPrevious}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-heading shadow-sm transition hover:border-gold-soft hover:text-gold-soft"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-heading shadow-sm transition hover:border-gold-soft hover:text-gold-soft"
             >
               <ChevronLeft className="h-5 w-5" aria-hidden="true" />
             </button>
@@ -132,7 +132,7 @@ export default function TripAdvisorReviews(): React.JSX.Element {
               type="button"
               aria-label="Next reviews"
               onClick={goToNext}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-heading shadow-sm transition hover:border-gold-soft hover:text-gold-soft"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-heading shadow-sm transition hover:border-gold-soft hover:text-gold-soft"
             >
               <ChevronRight className="h-5 w-5" aria-hidden="true" />
             </button>
@@ -144,7 +144,7 @@ export default function TripAdvisorReviews(): React.JSX.Element {
             href={TRIPADVISOR_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-5 py-2 text-sm font-extrabold text-text-main shadow-sm transition-colors hover:border-primary hover:text-primary"
+            className="mt-4 inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-border bg-card px-5 py-2 text-sm font-extrabold text-text-main shadow-sm transition-colors hover:border-primary hover:text-primary"
           >
             <span>View all reviews</span>
 
