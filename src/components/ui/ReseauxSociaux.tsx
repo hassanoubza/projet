@@ -15,32 +15,35 @@ type SocialItem = {
   icon: React.ReactNode;
 };
 
+
 const socials: SocialItem[] = [
   {
     name: "Facebook",
-    link: "#",
+    link: "https://www.facebook.com/tripstomarrakechdemo",
     bg: "bg-[#1877F2]",
-    icon: <FaFacebookF />,
+    icon: <FaFacebookF aria-hidden="true" />,
   },
   {
     name: "Instagram",
-    link: "#",
+    link: "https://www.instagram.com/tripstomarrakechdemo",
     bg: "bg-gradient-to-tr from-[#833AB4] via-[#E1306C] to-[#FCAF45]",
-    icon: <FaInstagram />,
+    icon: <FaInstagram aria-hidden="true" />,
   },
   {
     name: "WhatsApp",
-    link: "#",
+    link: "https://wa.me/212600000000?text=Hello%20Trips%20to%20Marrakech%2C%20I%20would%20like%20more%20information.",
     bg: "bg-[#25D366]",
-    icon: <FaWhatsapp />,
+    icon: <FaWhatsapp aria-hidden="true" />,
   },
   {
     name: "X",
-    link: "#",
+    link: "https://x.com/tripstomarrakechdemo",
     bg: "bg-neutral-950",
-    icon: <BsTwitterX />,
-  }
+    icon: <BsTwitterX aria-hidden="true" />,
+  },
 ];
+
+
 
 function ReseauxSociaux(): React.JSX.Element {
   return (

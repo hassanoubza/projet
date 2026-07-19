@@ -69,7 +69,10 @@ export default function CustomizeTour() {
           <div className="p-2 sm:p-5 ">
             <div className=" grid gap-4">
               <div className=" rounded-xl border border-border px-4 py-3 transition focus-within:border-primary ">
-                <label className="  text-xs font-medium text-foreground ">
+                <label
+                  htmlFor="departure-city"
+                  className="text-xs font-medium text-foreground "
+                >
                   Departure City
                 </label>
 
@@ -77,6 +80,7 @@ export default function CustomizeTour() {
                   <MapPin className="h-5 w-5 text-gold" />
 
                   <select
+                    id="departure-city"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     className="w-full bg-transparent text-sm
@@ -96,7 +100,10 @@ export default function CustomizeTour() {
 
               {/* TRAVELERS */}
               <div className=" rounded-xl border border-border px-4 py-3 transition focus-within:border-primary ">
-                <label className="  text-xs font-medium text-foreground">
+                <label
+                  htmlFor="travelers"
+                  className="text-xs font-medium text-foreground"
+                >
                   Travelers
                 </label>
 
@@ -104,6 +111,7 @@ export default function CustomizeTour() {
                   <Users className="h-5 w-5 text-gold" />
 
                   <input
+                    id="travelers"
                     type="number"
                     min={1}
                     value={travelers}
@@ -116,14 +124,18 @@ export default function CustomizeTour() {
 
               {/* DURATION */}
               <div className=" rounded-xl border border-border px-4 py-3 transition focus-within:border-primary ">
-                <label className="  text-xs  font-medium text-foreground ">
+                <label
+                  htmlFor="duration"
+                  className="text-xs font-medium text-foreground "
+                >
                   Duration
                 </label>
 
-                <div   className="   mt-2   flex   items-center   gap-3 " >
+                <div className="   mt-2   flex   items-center   gap-3 ">
                   <Clock className="h-5 w-5 text-gold" />
 
                   <select
+                    id="duration"
                     value={duration}
                     onChange={(e) => setDuration(e.target.value)}
                     className="
