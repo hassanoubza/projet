@@ -20,20 +20,19 @@ const FAQ_IDS = [
     q: "Do I need a visa to travel to Morocco?",
     a: "Many travelers can visit Morocco without a visa for stays up to 90 days. Visa requirements depend on your nationality, so we recommend checking before your trip.",
   },
-
   {
-    q: "Can I customize my Morocco tour itinerary?",
-    a: "Yes, we specialize in private and tailor-made Morocco tours. You can customize destinations, activities, accommodation, and travel duration according to your preferences.",
+    q: "What is the best time to visit Marrakech?",
+    a: "The best time to visit Marrakech is during spring, from March to May, and autumn, from September to November. The weather is usually pleasant for exploring the Medina, visiting monuments, and taking day trips around Marrakech.",
   },
 
   {
-    q: "How do I travel between Moroccan cities during the tour?",
-    a: "Our tours include comfortable private transportation with experienced local drivers. We organize transfers between Marrakech, Fes, the Sahara Desert, Chefchaouen, and other destinations.",
+    q: "How many days do I need to visit Marrakech?",
+    a: "Three to four days are usually enough to discover Marrakech’s main attractions, including Jemaa el-Fna, the Medina, Bahia Palace, Majorelle Garden, and the traditional souks. Additional days are recommended for nearby excursions.",
   },
 
   {
-    q: "How can I book a Morocco tour and make payment?",
-    a: "You can contact us directly to choose your preferred tour. After confirming availability, we will guide you through the booking process and secure payment options.",
+    q: "What are the best day trips from Marrakech?",
+    a: "Popular day trips from Marrakech include the Atlas Mountains, Ourika Valley, Essaouira, Ouzoud Waterfalls, and the Agafay Desert. Each destination offers a different experience, from mountain villages and waterfalls to desert landscapes and coastal scenery.",
   },
 ];
 

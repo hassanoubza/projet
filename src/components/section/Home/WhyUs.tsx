@@ -4,12 +4,12 @@ import Image from "next/image";
 function WhyUs(): React.JSX.Element {
   return (
     <section
-      className="relative overflow-hidden bg-background px-4 py-4 text-foreground sm:px-6 lg:px-8" aria-labelledby="why-us-title">
+      className="relative overflow-hidden bg-background px-4 py-4 text-foreground sm:px-6 lg:px-8"
+      aria-labelledby="why-us-title"
+    >
       <div className="mx-auto max-w-6xl">
-       
-
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-gold">
+          <p className="text-xs font-bold uppercase tracking-[0.25em]  text-primary">
             Your Local Morocco Expert
           </p>
 
@@ -17,7 +17,8 @@ function WhyUs(): React.JSX.Element {
             id="why-us-title"
             className="mt-4 text-3xl font-bold leading-tight text-heading sm:text-4xl lg:text-5xl"
           >
-            Experience Authentic Morocco With <span className="text-primary">Hassan</span>
+            Experience Authentic Morocco With{" "}
+            <span className="text-primary">Hassan</span>
           </h2>
         </div>
 

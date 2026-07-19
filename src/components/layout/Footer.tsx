@@ -39,11 +39,11 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center">
               <Image
                 src="/logo.png"
-                alt="Trips To Marrakech logo"
+                alt="Trips to Marrakech"
                 width={160}
                 height={60}
-                priority
-                className="h-auto w-36"
+                sizes="160px"
+                className="h-auto w-40"
               />
             </Link>
 
@@ -59,9 +59,8 @@ export default function Footer() {
             </div>
           </div>
 
-
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-gold sm:text-sm">
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-footer-foreground sm:text-sm">
               Popular Tours
             </h3>
 
@@ -80,7 +79,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-gold sm:text-sm">
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-footer-foreground sm:text-sm">
               Useful Links
             </h3>
 
@@ -101,7 +100,7 @@ export default function Footer() {
           {/* CONTACT */}
 
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-gold sm:text-sm">
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-footer-foreground sm:text-sm">
               Contact
             </h3>
 
@@ -139,7 +138,7 @@ export default function Footer() {
 
             <div className="flex flex-row justify-center items-center">
               <div className="mt-8">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-footer-foreground">
                   Accepted Payment
                 </p>
                 <Image
@@ -153,21 +152,25 @@ export default function Footer() {
               </div>
 
               <div className="mt-6 sm:ml-6 sm:mt-8">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-footer-foreground">
                   Trusted By Travelers
                 </p>
 
                 <div className="mt-3 flex items-center gap-3">
                   <div className="flex items-centerpx-3">
-                  <a href={TRIPADVISOR_URL} target="_blank" rel="noopener noreferrer">
-                    <Image
-                      src="/images/tripadvisor-logo-circle-owl-icon-black-green-1536x1536-1.webp"
-                      alt="Tripadvisor"
-                      width={65}
-                      height={65}
-                      className="h-20 w-20 object-contain"
-                    />
-                  </a>
+                    <a
+                      href={TRIPADVISOR_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Image
+                        src="/images/tripadvisor-logo-circle-owl-icon-black-green-1536x1536-1.webp"
+                        alt="Tripadvisor"
+                        width={65}
+                        height={65}
+                        className="h-20 w-20 object-contain"
+                      />
+                    </a>
                   </div>
                 </div>
               </div>

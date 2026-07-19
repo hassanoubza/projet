@@ -25,7 +25,9 @@ function ArticleTripAdvisor({ review, index,}: {
           <div className="flex items-center gap-2">
             <div className="flex text-gold">★★★★★</div>
 
-            <span className="text-sm text-text-muted">Verified Review</span>
+            <span className="text-sm font-medium text-foreground">
+              Verified Review
+            </span>
           </div>
         </div>
 
@@ -33,7 +35,9 @@ function ArticleTripAdvisor({ review, index,}: {
           href={TRIPADVISOR_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="  flex h-11 w-11 items-center justify-center rounded-full border border-gold  bg-primary  transition hover:scale-105 hover:border-gold hover:bg-primary-hover"  >
+          aria-label={`Read ${review.name}'s verified review on TripAdvisor`}
+          className="  flex h-11 w-11 items-center justify-center rounded-full border border-gold  bg-primary  transition hover:scale-105 hover:border-gold hover:bg-primary-hover"
+        >
           <SiTripadvisor
             className="h-5 w-5 text-[#34E0A1]"
             aria-hidden="true"
@@ -53,7 +57,8 @@ function ArticleTripAdvisor({ review, index,}: {
         <a
           href={TRIPADVISOR_URL}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
+          aria-label={`Read ${review.name}'s verified review on TripAdvisor`}
           className="text-sm font-semibold text-heading-soft transition-colors hover:text-gold-soft"
         >
           Read on Tripadvisor

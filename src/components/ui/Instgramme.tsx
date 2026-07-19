@@ -55,7 +55,7 @@ export default async function InstagramSection(): Promise<React.JSX.Element> {
           hassle-free travel experiences.
         </p>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 mx-auto max-w-5xl grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {photos.map((photo) => (
             <div
               key={photo.id}
@@ -81,7 +81,7 @@ export default async function InstagramSection(): Promise<React.JSX.Element> {
           className="mt-10 inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-7 py-3 text-sm font-extrabold text-text-main shadow-sm transition-colors hover:bg-muted hover:text-gold-soft"
         >
           <FaInstagram className="h-5 w-5" />
-            Follow us on Instagram
+          Follow us on Instagram
         </a>
       </div>
     </section>

@@ -31,7 +31,7 @@ export default function CustomizeTour() {
       <div className=" mx-auto max-w-7xl">
         <div className="mx-auto grid w-full max-w-6xl gap-4 lg:grid-cols-2 lg:items-center">
           {/* LEFT CONTENT */}
-        
+
           <div>
             <p className="text-center sm:text-start text-sm sm:text-lg font-bold uppercase tracking-[0.25em] text-heading-soft  ">
               Customize Your Private Tour
@@ -69,7 +69,7 @@ export default function CustomizeTour() {
           <div className="p-2 sm:p-5 ">
             <div className=" grid gap-4">
               <div className=" rounded-xl border border-border px-4 py-3 transition focus-within:border-primary ">
-                <label className="  text-xs  text-text-muted ">
+                <label className="  text-xs font-medium text-foreground ">
                   Departure City
                 </label>
 
@@ -96,7 +96,9 @@ export default function CustomizeTour() {
 
               {/* TRAVELERS */}
               <div className=" rounded-xl border border-border px-4 py-3 transition focus-within:border-primary ">
-                <label className="  text-xs  text-text-muted">Travelers</label>
+                <label className="  text-xs font-medium text-foreground">
+                  Travelers
+                </label>
 
                 <div className=" mt-2 flex items-center gap-3 ">
                   <Users className="h-5 w-5 text-gold" />
@@ -113,33 +115,12 @@ export default function CustomizeTour() {
               </div>
 
               {/* DURATION */}
-              <div
-                className="
-                rounded-xl
-                border border-border
-                px-4
-                py-3
-                transition
-                focus-within:border-primary
-                "
-              >
-                <label
-                  className="
-                  text-xs
-                  text-text-muted
-                "
-                >
+              <div className=" rounded-xl border border-border px-4 py-3 transition focus-within:border-primary ">
+                <label className="  text-xs  font-medium text-foreground ">
                   Duration
                 </label>
 
-                <div
-                  className="
-                  mt-2
-                  flex
-                  items-center
-                  gap-3
-                "
-                >
+                <div   className="   mt-2   flex   items-center   gap-3 " >
                   <Clock className="h-5 w-5 text-gold" />
 
                   <select
@@ -166,8 +147,7 @@ export default function CustomizeTour() {
               </div>
 
               {/* BUTTONS */}
-              <div
-                className="mt-3 flex flex-col gap-3 sm:flex-row "  >
+              <div className="mt-3 flex flex-col gap-3 sm:flex-row ">
                 <Link
                   href="/contact"
                   className="

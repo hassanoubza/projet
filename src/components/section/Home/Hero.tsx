@@ -15,9 +15,9 @@ export default async function Hero(): Promise<React.JSX.Element> {
         src="/images/marakech.jpeg"
         alt="Place Jemaa el-Fna animée au coucher du soleil, Marrakech"
         fill
-        loading="eager"
+        preload
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
-        quality={95}
+        quality={75}
         className="object-cover"
       />
 
@@ -44,7 +44,7 @@ export default async function Hero(): Promise<React.JSX.Element> {
         </p>
 
         {/* BUTTONS */}
-        <div className="mt-12 flex items-center gap-1 lg:gap-3 flex-row flex-nowrap">
+        <div className="mt-12 flex items-center gap-1 lg:gap-3 flex-row sm:flex-wrap">
           <Link
             href="/tours"
             className=" inline-flex items-center gap-1 lg:gap-2 rounded-full bg-primary p-2 lg:px-6 lg:py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-hover "
@@ -53,13 +53,14 @@ export default async function Hero(): Promise<React.JSX.Element> {
             <ArrowRight className="h-4 w-4" />
           </Link>
 
-          <Link href="/contact" className=" inline-flex items-center rounded-full border border-primary/30 bg-card p-2 lg:px-6 lg:py-3 text-sm font-semibold text-heading transition hover:border-primary  hover:bg-gold-muted ">
-          Customize Your Journey
+          <Link
+            href="/contact"
+            className=" inline-flex items-center rounded-full border border-primary/30 bg-card p-2 lg:px-6 lg:py-3 text-sm font-semibold text-heading transition hover:border-primary  hover:bg-gold-muted "
+          >
+            Customize Your Journey
           </Link>
         </div>
       </div>
-
-
     </section>
   );
 }

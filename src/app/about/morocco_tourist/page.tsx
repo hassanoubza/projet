@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import carte from "@/../public/images/carte.webp";
 import drapeaux from "@/../public/images/drapaux.webp";
 import InstagramSection from "@/components/ui/Instgramme";
 import FAQTourist from "@/components/section/tours/FAQTourist";
+import ContactAdventure from "@/components/ui/ContactAdventure";
 
 
 const HIGHLIGHTS = [
@@ -115,7 +115,7 @@ function AboutMoroccoTouristPage(): React.JSX.Element {
 
         <p className="mt-6 text-lg leading-8 text-text-secondary">
           Located in the northwestern corner of Africa, Morocco is one of the
-          world's most fascinating travel destinations. Bordered by both the
+          world’s most fascinating travel destinations. Bordered by both the
           Atlantic Ocean and the Mediterranean Sea, the country offers an
           extraordinary diversity of landscapes, from golden Sahara Desert dunes
           and the majestic Atlas Mountains to picturesque coastal towns and lush
@@ -144,7 +144,7 @@ function AboutMoroccoTouristPage(): React.JSX.Element {
           <strong>nine UNESCO World Heritage Sites</strong>, including the
           ancient Medina of Fes, the historic Medina of Marrakech, the Roman
           ruins of Volubilis, the fortified village of Ait Ben Haddou and the
-          imperial city of Meknes. These landmarks reflect Morocco's rich
+          imperial city of Meknes. These landmarks reflect Morocco’s rich
           architectural heritage and attract millions of visitors every year who
           wish to experience authentic history and culture.
         </p>
@@ -208,7 +208,7 @@ function AboutMoroccoTouristPage(): React.JSX.Element {
           the Sahara Desert, every journey through Morocco offers unforgettable
           memories. Combined with world-renowned hospitality, flavorful cuisine,
           vibrant traditions and breathtaking landscapes, Morocco continues to
-          rank among the world's most captivating travel destinations and
+          rank among the world’s most captivating travel destinations and
           remains an exceptional choice for cultural tours, luxury holidays,
           family vacations and adventure travel.
         </p>
@@ -276,25 +276,7 @@ function AboutMoroccoTouristPage(): React.JSX.Element {
           </div>
         </div>
       </section>
-
-      <section className="px-6 pb-10  text-center">
-        <h2 className="text-3xl font-bold text-heading sm:text-4xl">
-          Ready to Explore Morocco?
-        </h2>
-
-        <p className="mx-auto mt-5 max-w-2xl text-text-secondary">
-          Join Trips to Marrakech for private tours, desert adventures and
-          authentic Moroccan experiences designed around your journey.
-        </p>
-
-        <Link
-          href="/tours"
-          className="mt-8 inline-flex rounded-full bg-primary px-8 py-3 font-bold text-primary-foreground transition hover:bg-primary-hover"
-        >
-          Explore Our Tours
-        </Link>
-      </section>
-
+      <ContactAdventure />
       <InstagramSection />
       <FAQTourist />
     </section>
