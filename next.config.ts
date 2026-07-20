@@ -9,7 +9,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "*.supabase.co",
+        hostname: "cms.tripstomarrakech.com",
+        pathname: "/wp-content/uploads/**",
       },
     ],
     formats: ["image/avif", "image/webp"],

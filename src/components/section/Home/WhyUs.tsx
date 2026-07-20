@@ -25,7 +25,7 @@ function WhyUs(): React.JSX.Element {
         {/* CONTENT */}
         <div className="mt-14 grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16">
           {/* IMAGE */}
-          <div className="relative min-h-105 rounded-bl-4xl rounded-tr-4xl overflow-hidden border border-border bg-card">
+          <div className="relative min-h-105 overflow-hidden border border-border bg-card">
             <Image
               src="/personel/hassan.jpeg"
               alt="Hassan, local Morocco tour guide with travelers"
