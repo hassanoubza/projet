@@ -18,21 +18,22 @@ type NavLink = {
 };
 
 const TOURS_DROPDOWN: DropdownItem[] = [
-  { href: "/tours/marrakech", label: "Tours from Marrakech" },
-  { href: "/tours/fes", label: "Tours from Fes" },
-  { href: "/tours/casablanca", label: "Tours from Casablanca" },
-  { href: "/tours/tangier", label: "Tours from Tangier" },
-  { href: "/tours/agadir", label: "Tours from Agadir" },
+  { href: "/tours/from/marrakech", label: "Tours from Marrakech" },
+  { href: "/tours/from/fes", label: "Tours from Fes" },
+  { href: "/tours/from/casablanca", label: "Tours from Casablanca" },
+  { href: "/tours/from/tangier", label: "Tours from Tangier" },
+  { href: "/tours/from/agadir", label: "Tours from Agadir" },
   { href: "/tours", label: "All Tours" },
 ];
 
-const DAY_TRIPS_DROPDOWN: DropdownItem[] = [
-  { href: "/day-trips/marrakech", label: "Day Trips from Marrakech" },
-  { href: "/day-trips/fes", label: "Day Trips from Fes" },
-  { href: "/day-trips/casablanca", label: "Day Trips from Casablanca" },
-  { href: "/day-trips/tangier", label: "Day Trips from Tangier" },
-  { href: "/day-trips", label: "All Day Trips" },
-];
+
+// const DAY_TRIPS_DROPDOWN: DropdownItem[] = [
+//   { href: "/day-trips/marrakech", label: "Day Trips from Marrakech" },
+//   { href: "/day-trips/fes", label: "Day Trips from Fes" },
+//   { href: "/day-trips/casablanca", label: "Day Trips from Casablanca" },
+//   { href: "/day-trips/tangier", label: "Day Trips from Tangier" },
+//   { href: "/day-trips", label: "All Day Trips" },
+// ];
 
 const ABOUT_DROPDOWN: DropdownItem[] = [
   { href: "/about", label: "About Trips to Marrakech" },
@@ -43,7 +44,7 @@ const NAV_LINKS: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/activities", label: "Marrakech Activities" },
   { href: "/tours", label: "Tours", dropdown: TOURS_DROPDOWN },
-  { href: "/day-trips", label: "Day Trips", dropdown: DAY_TRIPS_DROPDOWN },
+  { href: "/day-trips", label: "Day Trips"},
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About Us", dropdown: ABOUT_DROPDOWN },
   { href: "/contact", label: "Contact" },
@@ -164,11 +165,12 @@ function Logo({ onClick }: { onClick?: () => void }): React.JSX.Element {
     >
       <Image
         src="/logo.png"
-        alt=""
-        width={180}
-        height={60}
+        alt="Trips to Marrakech logo"
+        width={100}
+        height={26}
+        priority
         sizes="(max-width: 1023px) 112px, 144px"
-        className="h-auto w-28 lg:w-36"
+        className="h-auto w-16 lg:w-24"
       />
     </Link>
   );

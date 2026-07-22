@@ -25,8 +25,8 @@ export default async function TopBlogs(): Promise<React.JSX.Element | null> {
 
 
   return (
-    <section className="px-4 py-8 text-foreground sm:px-6 lg:px-8 lg:py-12">
-      <div className="mx-auto max-w-6xl">
+    <section className=" text-foreground">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
         <header className="mx-auto max-w-3xl text-center">
           <h2 className="text-4xl font-bold leading-tight text-heading">
             Top <span className="text-primary">Blog</span>

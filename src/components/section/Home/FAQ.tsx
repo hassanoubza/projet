@@ -21,8 +21,8 @@ const FAQ_IDS = [
     a: "Many travelers can visit Morocco without a visa for stays up to 90 days. Visa requirements depend on your nationality, so we recommend checking before your trip.",
   },
   {
-    q: "What is the best time to visit Marrakech?",
-    a: "The best time to visit Marrakech is during spring, from March to May, and autumn, from September to November. The weather is usually pleasant for exploring the Medina, visiting monuments, and taking day trips around Marrakech.",
+    q: "Is Marrakech safe for tourists?",
+    a: "Marrakech is generally considered safe for tourists, especially in popular areas such as the Medina, Gueliz, and Hivernage. As in any busy city, keep an eye on your belongings, avoid poorly lit areas at night, and use trusted transportation services.",
   },
 
   {

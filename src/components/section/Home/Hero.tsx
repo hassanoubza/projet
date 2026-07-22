@@ -36,7 +36,7 @@ export default async function Hero(): Promise<React.JSX.Element> {
         </h1>
 
         {/* DESCRIPTION */}
-        <p className="mt-6 max-w-2xl font-bold text-base sm:text-xl text-heading dark:text-white/90">
+        <p className="mt-6 max-w-2xl font-bold text-base sm:text-xl text-white/90">
           Discover Morocco with expert local guides. Enjoy private tours from
           Marrakech to the Sahara Desert, Merzouga, Atlas Mountains, Fes and
           Chefchaouen with authentic experiences and tailor-made travel

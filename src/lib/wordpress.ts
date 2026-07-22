@@ -122,6 +122,8 @@ export function getPostDescription(post: WordPressPost): string {
   return htmlToText(post.content?.rendered ?? "").slice(0, 180);
 }
 
+
+
 export async function getBlogPosts(limit = 12): Promise<WordPressPost[]> {
   const query = new URLSearchParams({
     _embed: "1",
@@ -149,6 +151,8 @@ export async function getBlogPosts(limit = 12): Promise<WordPressPost[]> {
 
   return (await response.json()) as WordPressPost[];
 }
+
+
 
 export async function getTopBlogPosts(limit = 4): Promise<WordPressBlogCard[]> {
   const query = new URLSearchParams({
@@ -178,6 +182,8 @@ export async function getTopBlogPosts(limit = 4): Promise<WordPressBlogCard[]> {
 
   return (await response.json()) as WordPressBlogCard[];
 }
+
+
 
 export async function getBlogPostBySlug(
   slug: string,
@@ -212,6 +218,8 @@ export async function getBlogPostBySlug(
 interface WordPressPostSlug {
   slug: string;
 }
+
+
 
 export async function getBlogPostSlugs(): Promise<string[]> {
   const query = new URLSearchParams({

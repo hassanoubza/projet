@@ -9,6 +9,8 @@ import {
   htmlToText,
 } from "@/lib/wordpress";
 
+
+
 export const metadata: Metadata = {
   title: "Morocco Travel Blog",
   description:
@@ -25,6 +27,8 @@ export const metadata: Metadata = {
   },
 };
 
+
+
 function formatDate(date: string): string {
   return new Intl.DateTimeFormat("en-US", {
     day: "numeric",
@@ -33,9 +37,12 @@ function formatDate(date: string): string {
   }).format(new Date(date));
 }
 
+
+
 export default async function BlogPage(): Promise<React.JSX.Element> {
   const posts = await getBlogPosts(20);
 
+  
   return (
     <section className="bg-background px-4 pb-10 pt-10 text-foreground sm:px-6 lg:px-8">
       <section className="mx-auto max-w-7xl">
