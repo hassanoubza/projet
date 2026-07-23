@@ -41,13 +41,13 @@ export default function Footer() {
                 src="/logo.png"
                 alt="Trips to Marrakech"
                 width={160}
-                height={60}
+                height={40}
                 sizes="160px"
-                className="h-auto w-40"
+                className="h-auto w-30"
               />
             </Link>
 
-            <p className="mt-5 max-w-sm text-sm leading-7 text-footer-muted sm:text-[15px] sm:leading-8">
+            <p className="mt-2 max-w-sm text-sm leading-7 text-footer-muted sm:text-[15px] sm:leading-8">
               Trips To Marrakech is a local Morocco tour operator creating
               private tours, Sahara desert experiences and tailor-made journeys
               across Marrakech, Fes, Merzouga, Chefchaouen and the Atlas

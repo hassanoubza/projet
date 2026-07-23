@@ -9,10 +9,7 @@ interface ItineraryProps {
   label?: string;
 }
 
-export default function Itinerary({
-  itinerary,
-  label = "Tour Itinerary",
-}: ItineraryProps): React.JSX.Element | null {
+export default function Itinerary({itinerary,label = "Tour Itinerary",}: ItineraryProps): React.JSX.Element | null {
   const [openIndex, setOpenIndex] = useState<number | null>(-1);
 
   if (itinerary.length === 0) {
@@ -60,7 +57,7 @@ export default function Itinerary({
                   aria-expanded={isOpen}
                   aria-controls={contentId}
                   onClick={() => toggleDay(index)}
-                  className={`group relative z-10 grid w-full grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-4 rounded-xl border bg-background px-4 py-5 text-left transition-all duration-300 sm:gap-5 sm:px-6 sm:py-6 ${
+                  className={`group relative z-10 grid w-full grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-4 rounded-xl border bg-card px-4 py-5 text-left transition-all duration-300 sm:gap-5 sm:px-6 sm:py-6 ${
                     isOpen
                       ? "border-primary/50 shadow-sm"
                       : "border-border hover:border-primary/40 hover:shadow-sm"

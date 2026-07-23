@@ -225,6 +225,7 @@ export async function getTourCards({
   };
 }
 
+
 /**
  * Query 2:
  * Returns the complete tour using its slug.

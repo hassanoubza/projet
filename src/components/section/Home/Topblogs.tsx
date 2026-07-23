@@ -8,6 +8,12 @@ import {
   htmlToText,
 } from "@/lib/wordpress";
 
+type BlogPosts = Awaited<ReturnType<typeof getBlogPosts>>;
+
+interface TopBlogsProps {
+  posts: BlogPosts;
+}
+
 function formatDate(date: string): string {
   return new Intl.DateTimeFormat("en-US", {
     day: "numeric",
@@ -16,13 +22,12 @@ function formatDate(date: string): string {
   }).format(new Date(date));
 }
 
-export default async function TopBlogs(): Promise<React.JSX.Element | null> {
-  const posts = await getBlogPosts(4);
+export default async function TopBlogs({posts,}: TopBlogsProps): Promise<React.JSX.Element | null> {
 
+  
   if (posts.length === 0) {
     return null;
   }
-
 
   return (
     <section className=" text-foreground">

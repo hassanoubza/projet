@@ -193,7 +193,8 @@ async function page({ params }: Props): Promise<React.JSX.Element> {
     <section className="bg-background text-foreground">
       <TourHero tour={tourdetails} />
 
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+
+      <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start lg:gap-14 xl:grid-cols-[minmax(0,1fr)_390px] xl:gap-16">
           <div className="min-w-0">
             <div id="overview" className="scroll-mt-28">

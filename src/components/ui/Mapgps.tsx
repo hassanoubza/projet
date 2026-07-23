@@ -13,7 +13,7 @@ function Mapgps({ trip }: Props) {
   if (!trip?.map_url) return null;
 
   return (
-    <div className="mt-10">
+    <div className="mt-4">
       <div className="overflow-hidden rounded-xl border">
         {!loadMap ? (
           <button

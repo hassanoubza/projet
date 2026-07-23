@@ -12,7 +12,7 @@ export default async function Hero(): Promise<React.JSX.Element> {
       aria-labelledby="hero-title"
     >
       <Image
-        src="/images/marakech.jpeg"
+        src="/images/hero.webp"
         alt="Place Jemaa el-Fna animée au coucher du soleil, Marrakech"
         fill
         preload
@@ -20,6 +20,7 @@ export default async function Hero(): Promise<React.JSX.Element> {
         quality={75}
         className="object-cover"
       />
+      
 
       <div className="relative z-10 flex w-full max-w-6xl flex-col items-center px-4 text-center">
         {/* TITLE */}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Mail } from "lucide-react";
+import { Mail, Clock } from "lucide-react";
 import ReseauxSociaux from "@/components/ui/ReseauxSociaux";
 
 interface TourInquiryFormProps {
@@ -11,9 +11,10 @@ interface TourInquiryFormProps {
 
 const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
 
-export default function TourInquiryForm({tourTitle,tourSlug,}: TourInquiryFormProps): React.JSX.Element {
-
-
+export default function TourInquiryForm({
+  tourTitle,
+  tourSlug,
+}: TourInquiryFormProps): React.JSX.Element {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -29,7 +30,6 @@ export default function TourInquiryForm({tourTitle,tourSlug,}: TourInquiryFormPr
       setError("Please complete all fields.");
       return;
     }
-    
 
     const phoneNumber = whatsappNumber.replace(/\D/g, "");
 
@@ -54,23 +54,39 @@ export default function TourInquiryForm({tourTitle,tourSlug,}: TourInquiryFormPr
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   }
 
-
-
   return (
-    <section className="sticky top-40">
-      <div className="overflow-hidden rounded-xl border border-border bg-background">
-        <div className=" px-4 py-3">
-          <h2 className="mt-2 text-2xl font-extrabold text-heading">
-            Book your Adventure
+    <section className="sticky top-40 space-y-4">
+      <div className="overflow-hidden rounded-2xl border border-border bg-surface-soft shadow-[0_8px_30px_-15px_rgba(0,0,0,0.12)]">
+        {/* ─── HEADER STRIP ─── */}
+        <div className="border-b border-border bg-gold-muted/40 px-6 py-4">
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-soft">
+            Private Departure
+          </span>
+          <h2 className="mt-1 text-xl font-extrabold leading-snug text-heading">
+            {tourTitle}
           </h2>
+        </div>
 
-          <p className="mt-2 text-sm leading-6 text-text-secondary">
+        {/* ─── QUICK FACTS ─── */}
+        <div className="space-y-2.5 px-6 py-4">
+          <div className="flex items-center justify-between text-sm">
+            <span className="inline-flex items-center gap-2 text-text-secondary">
+              <Clock aria-hidden="true" className="h-4 w-4 text-gold-soft" />
+              Response time
+            </span>
+            <span className="font-semibold text-heading">Within 24h</span>
+          </div>
+        </div>
+
+        <div className="border-t border-border" />
+
+        {/* ─── FORM ─── */}
+        <form onSubmit={handleSubmit} className="space-y-3 px-6 py-5">
+          <p className="text-sm leading-6 text-text-secondary">
             Send us your request and receive availability details for this
             private tour.
           </p>
-        </div>
 
-        <form onSubmit={handleSubmit} className="space-y-3 p-6">
           <div>
             <label
               htmlFor="tour-inquiry-email"
@@ -84,7 +100,6 @@ export default function TourInquiryForm({tourTitle,tourSlug,}: TourInquiryFormPr
                 aria-hidden="true"
                 className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-text-muted"
               />
-
               <input
                 id="tour-inquiry-email"
                 type="email"
@@ -104,12 +119,11 @@ export default function TourInquiryForm({tourTitle,tourSlug,}: TourInquiryFormPr
             >
               Your message
             </label>
-
             <textarea
               id="tour-inquiry-message"
               value={message}
               onChange={(event) => setMessage(event.target.value)}
-              rows={5}
+              rows={4}
               placeholder="Travel dates, number of travelers and any special requests..."
               className="w-full resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm leading-6 text-heading outline-none transition placeholder:text-text-muted focus:border-primary focus:ring-2 focus:ring-primary/15"
             />
@@ -134,6 +148,7 @@ export default function TourInquiryForm({tourTitle,tourSlug,}: TourInquiryFormPr
           </p>
         </form>
       </div>
+
       <div className="flex justify-center">
         <ReseauxSociaux />
       </div>

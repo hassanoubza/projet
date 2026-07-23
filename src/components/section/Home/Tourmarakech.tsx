@@ -1,36 +1,21 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import TourCard from "@/components/section/tours/TourCard";
-import { getDepartureCityBySlug, getTourCards, htmlToText } from "@/lib/tours";
+import type { getTourCards } from "@/lib/tours";
 
+type TourResult = Awaited<ReturnType<typeof getTourCards>>;
 
+interface ToursFromMarrakechProps {
+  tourResult: TourResult;
+  cityName: string;
+}
 
-export default async function DepartureCityPage(): Promise<React.JSX.Element> {
+export default function ToursFromMarrakech({ tourResult,cityName,}: ToursFromMarrakechProps): React.JSX.Element {
 
-  const departureCity = await getDepartureCityBySlug("marrakech");
-
-  if (!departureCity) {
-    notFound();
-  }
-
-  const tourResult = await getTourCards({
-    page: 1,
-    perPage:6,
-    departureCityId: departureCity.id,
-  });
-
-  const cityName = htmlToText(departureCity.name);
-
-
-
+  
   return (
     <section className="bg-background text-foreground">
-      <section
-        id="city-tours"
-        aria-labelledby="city-tours-heading"
-        className=""
-      >
-        <div className="mx-auto max-w-7xl  px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+      <section id="city-tours" aria-labelledby="city-tours-heading">
+        <div className="mx-auto max-w-7xl  px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
           <header className="mb-10 flex flex-col items-center text-center sm:mb-12">
             <h2
               id="city-tours-heading"
