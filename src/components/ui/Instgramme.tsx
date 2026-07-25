@@ -3,9 +3,9 @@ import { FaInstagram } from "react-icons/fa";
 import React from "react";
 
 import photo1 from "@/../public/personel/hassan.jpeg";
-import photo2 from "@/../public/personel/marakech.jpeg";
-import photo3 from "@/../public/personel/ourika.jpeg";
-import photo4 from "@/../public/personel/desert.jpeg";
+import photo2 from "@/../public/personel/hassan2.jpeg";
+import photo3 from "@/../public/personel/hassan3.jpeg";
+import photo4 from "@/../public/personel/hassan4.jpeg";
 
 type Photo = {
   id: number;

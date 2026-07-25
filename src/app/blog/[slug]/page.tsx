@@ -121,6 +121,7 @@ export async function generateMetadata({
 
 
 
+
 export default async function BlogPostPage({
   params,
 }: BlogPostPageProps): Promise<React.JSX.Element> {
@@ -132,7 +133,7 @@ export default async function BlogPostPage({
     notFound();
   }
 
-  const latestPosts = await getBlogPosts(6);
+  const latestPosts = await getBlogPosts(4);
   const otherPosts = latestPosts.filter((latestPost) => latestPost.id !== post.id).slice(0, 4);
 
   const title = htmlToText(post.title.rendered);

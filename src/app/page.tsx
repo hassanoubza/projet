@@ -9,6 +9,7 @@ import { getBlogPosts, htmlToText } from "@/lib/wordpress";
 import { getDepartureCityBySlug, getTourCards } from "@/lib/tours";
 import { notFound } from "next/navigation";
 import MarrakechActivitiesPreview from "@/components/section/Home/MarrakechActivitiesPreview";
+import TopDayTrips from "@/components/section/Home/TopDayTrips";
 
 export const revalidate = 300;
 
@@ -39,6 +40,7 @@ export default async function Home(): Promise<React.JSX.Element> {
       <WhyUs />
       <Tourmarakech tourResult={tourResult} cityName={cityName} />
       <MarrakechActivitiesPreview />
+      <TopDayTrips limit={3} />
       <TopBlogs posts={posts} />
       <InstagramSection />
       <FAQ />

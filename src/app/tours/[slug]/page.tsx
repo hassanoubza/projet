@@ -49,7 +49,7 @@ export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
 
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://tripstomarrakech.com").replace(/\/$/, "");
-
+ 
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;

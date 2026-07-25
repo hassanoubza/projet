@@ -8,19 +8,17 @@ function WhyUs(): React.JSX.Element {
       aria-labelledby="why-us-title"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.25em]  text-primary">
-            Your Local Morocco Expert
-          </p>
+        <p className="text-xs font-bold text-center uppercase tracking-[0.25em] text-primary">
+          Private Tours, Day Trips & Desert Experiences
+        </p>
 
-          <h2
-            id="why-us-title"
-            className="mt-4 text-3xl font-bold leading-tight text-heading sm:text-4xl lg:text-5xl"
-          >
-            Experience Authentic Morocco With{" "}
-            <span className="text-primary">Hassan</span>
-          </h2>
-        </div>
+        <h2
+          id="why-us-title"
+          className="mt-4 text-3xl text-center font-bold leading-tight text-heading sm:text-4xl lg:text-5xl"
+        >
+          The Finest Way To Discover
+          <span className="text-primary"> Morocco</span>
+        </h2>
 
         {/* CONTENT */}
         <div className="mt-14 grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16">
@@ -39,21 +37,26 @@ function WhyUs(): React.JSX.Element {
           {/* TEXT */}
           <div className="flex flex-col justify-center">
             <p className="text-base leading-8 text-text-secondary sm:text-lg">
-              Meet Hassan, a passionate local guide and professional driver with
-              years of experience exploring Morocco. Based between Marrakech and
-              the desert regions, he knows the country s hidden landscapes,
-              traditional villages and authentic cultural experiences.
+              At Trips to Marrakech, we curate exceptional private journeys for
+              travelers seeking comfort, authenticity, and unforgettable
+              moments. From the vibrant energy of Marrakech to the majestic
+              Atlas Mountains, the Atlantic coastline, and the golden dunes of
+              the Sahara Desert, every experience is designed with elegance,
+              exclusivity, and attention to detail.
               <br />
               <br />
-              From the colorful streets of Marrakech to the breathtaking Atlas
-              Mountains and the golden dunes of the Sahara Desert, Hassan
-              creates private journeys designed around comfort, safety and
-              discovery.
+              Our collection of private tours, luxury day trips, and handpicked
+              activities allows you to explore Morocco at your own pace. Enjoy
+              personalized itineraries, premium transportation, knowledgeable
+              local guides, and unique experiences that reveal the country s
+              rich culture, breathtaking landscapes, and hidden treasures.
               <br />
               <br />
-              His local knowledge, friendly personality and attention to every
-              detail allow travelers to experience Morocco beyond the usual
-              tourist routes and create memories that last a lifetime.
+              Beyond our curated experiences, our travel blog offers expert
+              insights, destination guides, and insider recommendations to
+              inspire your next Moroccan adventure. With local expertise and a
+              commitment to excellence, Trips to Marrakech transforms every
+              journey into a refined and memorable experience.
             </p>
           </div>
         </div>
