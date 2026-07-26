@@ -162,67 +162,89 @@ export async function getTourCards({
   perPage = 20,
   departureCityId,
 }: GetTourCardsOptions = {}): Promise<PaginatedTourCards> {
-  const safePage = Math.max(1, Math.trunc(page));
-  const safePerPage = Math.min(100, Math.max(1, Math.trunc(perPage)));
+  try {
+    const safePage = Math.max(1, Math.trunc(page));
+    const safePerPage = Math.min(100, Math.max(1, Math.trunc(perPage)));
 
-  const query = new URLSearchParams({
-    status: "publish",
-    page: String(safePage),
-    per_page: String(safePerPage),
-    orderby: "date",
-    order: "desc",
-    _embed: "wp:featuredmedia,wp:term",
-    acf_format: "standard",
-    _fields: [
-      "id",
-      "slug",
-      "title",
-      "excerpt",
-      "featured_media",
-      "departure_city",
-      "tour_tags",
-      "acf.duration",
-      "acf.start_location",
-      "acf.end_location",
-      "acf.price_from",
-      "acf.currency",
-      "acf.group_size",
-      "_links",
-      "_embedded",
-    ].join(","),
-  });
+    const query = new URLSearchParams({
+      status: "publish",
+      page: String(safePage),
+      per_page: String(safePerPage),
+      orderby: "date",
+      order: "desc",
+      _embed: "wp:featuredmedia,wp:term",
+      acf_format: "standard",
+      _fields: [
+        "id",
+        "slug",
+        "title",
+        "excerpt",
+        "featured_media",
+        "departure_city",
+        "tour_tags",
+        "acf.duration",
+        "acf.start_location",
+        "acf.end_location",
+        "acf.price_from",
+        "acf.currency",
+        "acf.group_size",
+        "_links",
+        "_embedded",
+      ].join(","),
+    });
 
-  if (
-    typeof departureCityId === "number" &&
-    Number.isInteger(departureCityId) &&
-    departureCityId > 0
-  ) {
-    query.set("departure_city", String(departureCityId));
-  }
+    if (
+      typeof departureCityId === "number" &&
+      Number.isInteger(departureCityId) &&
+      departureCityId > 0
+    ) {
+      query.set("departure_city", String(departureCityId));
+    }
 
-  const response = await fetch(
-    `${getWordPressApiUrl()}/tours?${query.toString()}`,
-    {
-      next: {
-        revalidate: 300,
-        tags: ["wordpress-tours", "wordpress-tour-cards"],
+    const response = await fetch(
+      `${getWordPressApiUrl()}/tours?${query.toString()}`,
+      {
+        next: {
+          revalidate: 300,
+          tags: ["wordpress-tours", "wordpress-tour-cards"],
+        },
       },
-    },
-  );
+    );
 
-  if (!response.ok) {
-    await throwWordPressError(response, "Fetching tour cards");
+    if (!response.ok) {
+      console.error(
+        `Fetching tour cards failed with status ${response.status}`,
+      );
+
+      return {
+        tours: [],
+        totalTours: 0,
+        totalPages: 1,
+        currentPage: safePage,
+        perPage: safePerPage,
+      };
+    }
+
+    const tours = (await response.json()) as WordPressTourCard[];
+
+    return {
+      tours,
+      totalTours: Number(response.headers.get("X-WP-Total") ?? 0),
+      totalPages: Number(response.headers.get("X-WP-TotalPages") ?? 1),
+      currentPage: safePage,
+      perPage: safePerPage,
+    };
+  } catch (error) {
+    console.error("Tours fetching error:", error);
+
+    return {
+      tours: [],
+      totalTours: 0,
+      totalPages: 1,
+      currentPage: 1,
+      perPage,
+    };
   }
-
-  const tours = (await response.json()) as WordPressTourCard[];
-
-  return {
-    tours,
-    totalTours: Number(response.headers.get("X-WP-Total") ?? 0),
-    totalPages: Number(response.headers.get("X-WP-TotalPages") ?? 1),
-    currentPage: safePage,
-    perPage: safePerPage,
-  };
 }
 
 

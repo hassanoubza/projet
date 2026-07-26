@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   experimental: {
+    staticGenerationMaxConcurrency: 2,
     optimizePackageImports: ["lucide-react"],
   },
 };

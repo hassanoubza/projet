@@ -664,9 +664,9 @@ export const getDayTripSlugs = cache(async (): Promise<string[]> => {
   return cards.map((dayTrip) => dayTrip.slug.trim()).filter(Boolean);
 });
 
-/* -------------------------------------------------------------------------- */
-/*                            RANDOM HOME QUERY                               */
-/* -------------------------------------------------------------------------- */
+
+
+
 
 /**
  * Query 3:

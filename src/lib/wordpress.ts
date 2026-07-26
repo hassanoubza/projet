@@ -124,32 +124,41 @@ export function getPostDescription(post: WordPressPost): string {
 
 
 
-export async function getBlogPosts(limit = 12): Promise<WordPressPost[]> {
-  const query = new URLSearchParams({
-    _embed: "1",
-    status: "publish",
-    orderby: "date",
-    order: "desc",
-    per_page: String(limit),
-  });
+export async function getBlogPosts(limit = 20): Promise<WordPressPost[]> {
+  try {
+    const query = new URLSearchParams({
+      _embed: "1",
+      status: "publish",
+      orderby: "date",
+      order: "desc",
+      per_page: String(limit),
+    });
 
-  const response = await fetch(
-    `${getWordPressApiUrl()}/posts?${query.toString()}`,
-    {
-      next: {
-        revalidate: 300,
-        tags: ["wordpress-blog-posts"],
+    const response = await fetch(
+      `${getWordPressApiUrl()}/posts?${query.toString()}`,
+      {
+        next: {
+          revalidate: 86400,
+          tags: ["wordpress-blog-posts"],
+        },
       },
-    },
-  );
-
-  if (!response.ok) {
-    throw new Error(
-      `Unable to fetch WordPress posts. Status: ${response.status}`,
     );
-  }
 
-  return (await response.json()) as WordPressPost[];
+    if (!response.ok) {
+      console.error(
+        `Unable to fetch WordPress posts. Status: ${response.status}`,
+      );
+
+      // Important pour ne pas casser le build
+      return [];
+    }
+
+    return (await response.json()) as WordPressPost[];
+  } catch (error) {
+    console.error("WordPress posts fetching error:", error);
+
+    return [];
+  }
 }
 
 
@@ -168,7 +177,7 @@ export async function getTopBlogPosts(limit = 4): Promise<WordPressBlogCard[]> {
     `${getWordPressApiUrl()}/posts?${query.toString()}`,
     {
       next: {
-        revalidate: 300,
+        revalidate: 86400,
         tags: ["wordpress-blog-posts"],
       },
     },
@@ -198,7 +207,7 @@ export async function getBlogPostBySlug(
     `${getWordPressApiUrl()}/posts?${query.toString()}`,
     {
       next: {
-        revalidate: 300,
+        revalidate: 86400,
         tags: ["wordpress-blog-posts", `wordpress-blog-post-${slug}`],
       },
     },
@@ -232,7 +241,7 @@ export async function getBlogPostSlugs(): Promise<string[]> {
     `${getWordPressApiUrl()}/posts?${query.toString()}`,
     {
       next: {
-        revalidate: 300,
+        revalidate: 86400,
         tags: ["wordpress-blog-posts"],
       },
     },
