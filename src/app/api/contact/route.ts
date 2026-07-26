@@ -67,14 +67,14 @@ export async function POST(request: Request) {
     return NextResponse.json({
       success: true,
     });
-
   } catch (error) {
-    console.error(error);
+    console.error("SMTP ERROR:", error);
 
     return NextResponse.json(
       {
         success: false,
         message: "Email sending failed",
+        error: error instanceof Error ? error.message : "Unknown error",
       },
       {
         status: 500,
