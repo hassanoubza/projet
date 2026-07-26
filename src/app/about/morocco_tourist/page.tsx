@@ -6,6 +6,228 @@ import InstagramSection from "@/components/ui/Instgramme";
 import FAQTourist from "@/components/section/tours/FAQTourist";
 import ContactAdventure from "@/components/ui/ContactAdventure";
 
+import type { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title:
+    "Discover Morocco | Culture, Sahara Desert, Marrakech & Authentic Experiences",
+
+  description:
+    "Discover Morocco, a land of ancient cities, Sahara Desert adventures, Atlas Mountains, UNESCO heritage sites and authentic cultural experiences. Explore Marrakech, Fes, Essaouira and Morocco's most beautiful destinations.",
+
+  keywords: [
+    "casablanca morocco tourism",
+    "marrakech morocco tourism",
+    "visit Morocco",
+    "things to do in Morocco",
+    "visiting morocco for the first time",
+    "Sahara Desert tours Morocco",
+    "Atlas Mountains Morocco",
+    "Fes Morocco",
+    "Essaouira Morocco",
+    "private tour guide morocco",
+    "Morocco cultural experiences",
+  ],
+
+  alternates: {
+    canonical: "https://www.tripstomarrakech.com/about",
+  },
+
+  openGraph: {
+    title:
+      "Discover Morocco | Culture, Landscapes & Authentic Travel Experiences",
+
+    description:
+      "Explore Morocco's imperial cities, Sahara Desert, Atlas Mountains and cultural heritage. Discover why Morocco is one of the world's most fascinating travel destinations.",
+
+    url: "https://www.tripstomarrakech.com/about",
+
+    siteName: "Trips To Marrakech",
+
+    locale: "en_US",
+
+    type: "article",
+
+    images: [
+      {
+        url: "https://www.tripstomarrakech.com/images/marakechh.jpeg",
+
+        width: 1200,
+
+        height: 630,
+
+        alt: "Beautiful Morocco landscape with Marrakech culture and heritage",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title: "Discover Morocco | Culture, Desert & Adventure",
+
+    description:
+      "Explore Marrakech, Sahara Desert, Atlas Mountains and Morocco's unforgettable cultural experiences.",
+
+    images: ["https://www.tripstomarrakech.com/images/marakechh.jpeg"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+
+const jsonLd = {
+  "@context": "https://schema.org",
+
+  "@graph": [
+    {
+      "@type": "WebPage",
+
+      "@id": "https://www.tripstomarrakech.com/about#webpage",
+
+      url: "https://www.tripstomarrakech.com/about",
+
+      name: "Discover Morocco | Culture, Landscapes & Authentic Experiences",
+
+      description:
+        "Discover Morocco, a country of ancient cities, Sahara Desert adventures, Atlas Mountains landscapes and authentic cultural experiences.",
+
+      isPartOf: {
+        "@id": "https://www.tripstomarrakech.com/#website",
+      },
+
+      about: {
+        "@id": "https://www.tripstomarrakech.com/#morocco",
+      },
+    },
+
+    {
+      "@type": "TouristDestination",
+
+      "@id": "https://www.tripstomarrakech.com/#morocco",
+
+      name: "Morocco",
+
+      description:
+        "Morocco is a unique travel destination offering imperial cities, Sahara Desert adventures, Atlas Mountains, Atlantic coast landscapes and rich cultural heritage.",
+
+      touristType: [
+        "Cultural tourism",
+        "Adventure tourism",
+        "Luxury travel",
+        "Family travel",
+        "Private tours",
+      ],
+
+      image: ["https://www.tripstomarrakech.com/images/marakechh.jpeg"],
+
+      geo: {
+        "@type": "GeoCoordinates",
+
+        latitude: "31.7917",
+
+        longitude: "-7.0926",
+      },
+
+      containsPlace: [
+        {
+          "@type": "City",
+          name: "Marrakech",
+        },
+
+        {
+          "@type": "City",
+          name: "Fes",
+        },
+
+        {
+          "@type": "Place",
+          name: "Sahara Desert",
+        },
+
+        {
+          "@type": "Mountain",
+          name: "Atlas Mountains",
+        },
+
+        {
+          "@type": "City",
+          name: "Essaouira",
+        },
+      ],
+    },
+
+    {
+      "@type": "TravelAgency",
+
+      "@id": "https://www.tripstomarrakech.com/#organization",
+
+      name: "Trips To Marrakech",
+
+      url: "https://www.tripstomarrakech.com",
+
+      logo: {
+        "@type": "ImageObject",
+
+        url: "https://www.tripstomarrakech.com/images/logo.png",
+      },
+
+      description:
+        "Trips To Marrakech offers private Morocco tours, Marrakech day trips, Sahara Desert experiences and customized travel itineraries.",
+
+      areaServed: {
+        "@type": "Country",
+        name: "Morocco",
+      },
+
+      knowsAbout: [
+        "Morocco tourism",
+
+        "Marrakech tours",
+
+        "Sahara Desert tours",
+
+        "Atlas Mountains excursions",
+
+        "Moroccan culture",
+      ],
+    },
+
+    {
+      "@type": "BreadcrumbList",
+
+      "@id": "https://www.tripstomarrakech.com/about#breadcrumb",
+
+      itemListElement: [
+        {
+          "@type": "ListItem",
+
+          position: 1,
+
+          name: "Home",
+
+          item: "https://www.tripstomarrakech.com",
+        },
+
+        {
+          "@type": "ListItem",
+
+          position: 2,
+
+          name: "Discover Morocco",
+
+          item: "https://www.tripstomarrakech.com/about",
+        },
+      ],
+    },
+  ],
+};
+
+
 
 const HIGHLIGHTS = [
   {
@@ -34,6 +256,13 @@ const HIGHLIGHTS = [
 
 function AboutMoroccoTouristPage(): React.JSX.Element {
   return (
+    <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(jsonLd),
+      }}
+    />
     <section className="bg-background text-foreground">
       <section className="relative h-[70vh] overflow-hidden">
         <Image
@@ -280,6 +509,7 @@ function AboutMoroccoTouristPage(): React.JSX.Element {
       <InstagramSection />
       <FAQTourist />
     </section>
+  </>
   );
 }
 

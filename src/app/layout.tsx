@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import Watsap from "@/components/ui/Watsap";
+import { Toaster } from "sonner";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-heading",
@@ -108,13 +109,10 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${manrope.variable} h-full antialiased`}
     >
-      <body
-        className="min-h-screen flex flex-col bg-background text-foreground "
-      >
+      <body className="min-h-screen flex flex-col bg-background text-foreground ">
         <Header />
-        <main className=" flex-1 w-full ">
-          {children}
-        </main>
+        <main className=" flex-1 w-full ">{children}</main>
+        <Toaster position="top-right" richColors />
         <Footer />
         <Watsap />
       </body>

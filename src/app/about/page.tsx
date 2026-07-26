@@ -1,6 +1,74 @@
 import Image from "next/image";
 import ContactAdventure from "@/components/ui/ContactAdventure";
 import InstagramSection from "@/components/ui/Instgramme";
+import type { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: "About Trips To Marrakech | Local Morocco Travel Experts",
+
+  description:
+    "Learn about Trips To Marrakech, a local Morocco travel company creating private tours, authentic experiences and customized itineraries across Marrakech, the Atlas Mountains, Sahara Desert and beyond.",
+
+  keywords: [
+    "Trips To Marrakech",
+    "Morocco travel company",
+    "Marrakech travel agency",
+    "local Morocco guides",
+    "private Morocco tours",
+    "custom Morocco itineraries",
+    "Marrakech excursions",
+    "Sahara Desert tours",
+    "Atlas Mountains tours",
+  ],
+
+  alternates: {
+    canonical: "https://www.tripstomarrakech.com/about",
+  },
+
+  openGraph: {
+    title: "About Trips To Marrakech | Your Local Morocco Travel Partner",
+
+    description:
+      "Meet the local team behind private Morocco tours and authentic travel experiences. Explore Marrakech, the Sahara Desert, Atlas Mountains and Morocco's hidden gems with local experts.",
+
+    url: "https://www.tripstomarrakech.com/about",
+
+    siteName: "Trips To Marrakech",
+
+    locale: "en_US",
+
+    type: "website",
+
+    images: [
+      {
+        url: "https://www.tripstomarrakech.com/personel/hassan.jpeg",
+
+        width: 1200,
+
+        height: 630,
+
+        alt: "Local Morocco travel guide from Trips To Marrakech",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title: "About Trips To Marrakech | Local Morocco Travel Experts",
+
+    description:
+      "Discover the story behind Trips To Marrakech and our passion for creating authentic private journeys throughout Morocco.",
+
+    images: ["https://www.tripstomarrakech.com/personel/hassan.jpeg"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 
 
@@ -15,8 +83,10 @@ export default function AboutPage(): React.JSX.Element {
             </h1>
 
             <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-text-secondary">
-              Meet the local team behind authentic private tours and
-              unforgettable travel experiences in Marrakech and across Morocco.
+              Meet the local travel team behind Trips To Marrakech, creating
+              private Morocco tours, authentic cultural experiences and
+              personalized journeys across Marrakech, the Atlas Mountains,
+              Sahara Desert and Morocco’s most beautiful destinations.
             </p>
           </div>
 
@@ -24,7 +94,7 @@ export default function AboutPage(): React.JSX.Element {
             <div className="relative min-h-[420px] overflow-hidden rounded-xl bg-card shadow-sm sm:min-h-[520px]">
               <Image
                 src="/personel/hassan.jpeg"
-                alt="Local guide from Trips to Marrakech"
+                alt="Local Morocco travel guide from Trips To Marrakech"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
