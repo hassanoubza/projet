@@ -27,18 +27,12 @@ export interface WordPressMedia {
   };
 }
 
-export interface WordPressPost {
+export interface WordPressPostPreview {
   id: number;
   slug: string;
-  status: "publish";
   date: string;
-  modified: string;
-  featured_media: number;
-  categories: number[];
-  tags: number[];
   title: WordPressRendered;
   excerpt: WordPressRendered;
-  content: WordPressRendered;
   _embedded?: {
     author?: WordPressAuthor[];
     "wp:featuredmedia"?: WordPressMedia[];
@@ -46,33 +40,40 @@ export interface WordPressPost {
   };
 }
 
-export interface WordPressBlogCard {
-  id: number;
-  slug: string;
-  date: string;
-  title: {
-    rendered: string;
-  };
-  excerpt: {
-    rendered: string;
-  };
-  _embedded?: {
-    "wp:featuredmedia"?: WordPressMedia[];
-    "wp:term"?: WordPressTerm[][];
-  };
+
+export interface WordPressPost extends WordPressPostPreview {
+  status: "publish";
+  modified: string;
+  featured_media: number;
+  categories: number[];
+  tags: number[];
+  content: WordPressRendered;
 }
+
+export type WordPressBlogCard = WordPressPostPreview;
+
+
+export interface PaginatedBlogPosts {
+  posts: WordPressPost[];
+  totalPosts: number;
+  totalPages: number;
+  currentPage: number;
+  perPage: number;
+}
+
 
 const WORDPRESS_API_URL = process.env.WORDPRESS_API_URL?.replace(/\/$/, "");
 
 function getWordPressApiUrl(): string {
   if (!WORDPRESS_API_URL) {
-    throw new Error(
-      "WORDPRESS_API_URL is missing from the environment variables.",
-    );
+    console.warn("WORDPRESS_API_URL is missing from environment variables");
+
+    return "";
   }
 
   return WORDPRESS_API_URL;
 }
+
 
 export function htmlToText(html: string): string {
   return html
@@ -92,24 +93,30 @@ export function htmlToText(html: string): string {
     .trim();
 }
 
-export function getFeaturedImage(post: WordPressPost): WordPressMedia | null {
+
+
+export function getFeaturedImage(
+  post: WordPressPostPreview,
+): WordPressMedia | null {
   return post._embedded?.["wp:featuredmedia"]?.[0] ?? null;
 }
 
-export function getPostAuthor(post: WordPressPost): WordPressAuthor | null {
-  return post._embedded?.author?.[0] ?? null;
-}
-
-export function getPostTerms(post: WordPressPost): WordPressTerm[] {
+export function getPostTerms(post: WordPressPostPreview): WordPressTerm[] {
   return post._embedded?.["wp:term"]?.flat() ?? [];
 }
 
-export function getPostCategories(post: WordPressPost): WordPressTerm[] {
+export function getPostCategories(post: WordPressPostPreview): WordPressTerm[] {
   return getPostTerms(post).filter((term) => term.taxonomy === "category");
 }
 
-export function getPostTags(post: WordPressPost): WordPressTerm[] {
+export function getPostTags(post: WordPressPostPreview): WordPressTerm[] {
   return getPostTerms(post).filter((term) => term.taxonomy === "post_tag");
+}
+
+export function getPostAuthor(
+  post: WordPressPostPreview,
+): WordPressAuthor | null {
+  return post._embedded?.author?.[0] ?? null;
 }
 
 export function getPostDescription(post: WordPressPost): string {
@@ -124,73 +131,121 @@ export function getPostDescription(post: WordPressPost): string {
 
 
 
-export async function getBlogPosts(limit = 20): Promise<WordPressPost[]> {
+
+export async function getBlogPosts(page = 1,perPage = 6,): Promise<PaginatedBlogPosts> {
+
+  
+  const safePage = Math.max(1, Math.trunc(page));
+  const safePerPage = Math.min(100, Math.max(1, Math.trunc(perPage)));
+
+  const emptyResult: PaginatedBlogPosts = {
+    posts: [],
+    totalPosts: 0,
+    totalPages: 1,
+    currentPage: safePage,
+    perPage: safePerPage,
+  };
+
   try {
+    const apiUrl = getWordPressApiUrl();
+
+    if (!apiUrl) {
+      console.warn("WordPress API URL is unavailable.");
+      return emptyResult;
+    }
+
     const query = new URLSearchParams({
       _embed: "1",
       status: "publish",
       orderby: "date",
       order: "desc",
-      per_page: String(limit),
+      page: String(safePage),
+      per_page: String(safePerPage),
     });
 
-    const response = await fetch(
-      `${getWordPressApiUrl()}/posts?${query.toString()}`,
-      {
-        next: {
-          revalidate: 86400,
-          tags: ["wordpress-blog-posts"],
-        },
+    const response = await fetch(`${apiUrl}/posts?${query.toString()}`, {
+      next: {
+        revalidate: 86400,
+        tags: ["wordpress-blog-posts"],
       },
-    );
+    });
 
     if (!response.ok) {
       console.error(
         `Unable to fetch WordPress posts. Status: ${response.status}`,
       );
 
-      // Important pour ne pas casser le build
+      return emptyResult;
+    }
+
+    const posts = (await response.json()) as WordPressPost[];
+
+    return {
+      posts,
+      totalPosts: Number(response.headers.get("X-WP-Total") ?? 0),
+      totalPages: Number(response.headers.get("X-WP-TotalPages") ?? 1),
+      currentPage: safePage,
+      perPage: safePerPage,
+    };
+  } catch (error) {
+    console.error("WordPress posts fetching error:", error);
+    return emptyResult;
+  }
+}
+
+// get top blog posts
+
+export async function getTopBlogPosts(limit = 4): Promise<WordPressBlogCard[]> {
+  try {
+    const safeLimit = Math.min(20, Math.max(1, Math.trunc(limit)));
+
+    const apiUrl = getWordPressApiUrl();
+
+    if (!apiUrl) {
+      console.error(
+        "Cannot fetch top blog posts: WordPress API URL is missing.",
+      );
+
       return [];
     }
 
-    return (await response.json()) as WordPressPost[];
+    const query = new URLSearchParams({
+      status: "publish",
+      orderby: "date",
+      order: "desc",
+      per_page: String(safeLimit),
+      _embed: "wp:featuredmedia,wp:term",
+      _fields: "id,slug,date,title,excerpt,_links,_embedded",
+    });
+
+    const response = await fetch(`${apiUrl}/posts?${query.toString()}`, {
+      next: {
+        revalidate: 86400,
+        tags: ["wordpress-blog-posts"],
+      },
+    });
+
+    if (!response.ok) {
+      console.error(
+        `Unable to fetch top WordPress posts. Status: ${response.status}`,
+      );
+
+      return [];
+    }
+
+    const posts = (await response.json()) as WordPressBlogCard[];
+
+    return Array.isArray(posts) ? posts : [];
   } catch (error) {
-    console.error("WordPress posts fetching error:", error);
+    console.error(
+      "Top WordPress posts fetching error:",
+      error instanceof Error ? error.message : error,
+    );
 
     return [];
   }
 }
 
-
-
-export async function getTopBlogPosts(limit = 4): Promise<WordPressBlogCard[]> {
-  const query = new URLSearchParams({
-    status: "publish",
-    orderby: "date",
-    order: "desc",
-    per_page: String(limit),
-    _embed: "wp:featuredmedia,wp:term",
-    _fields: "id,slug,date,title,excerpt,_links,_embedded",
-  });
-
-  const response = await fetch(
-    `${getWordPressApiUrl()}/posts?${query.toString()}`,
-    {
-      next: {
-        revalidate: 86400,
-        tags: ["wordpress-blog-posts"],
-      },
-    },
-  );
-
-  if (!response.ok) {
-    throw new Error(
-      `Unable to fetch top WordPress posts. Status: ${response.status}`,
-    );
-  }
-
-  return (await response.json()) as WordPressBlogCard[];
-}
 
 
 

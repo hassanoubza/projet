@@ -123,28 +123,33 @@ export interface GetTourCardsOptions {
   departureCityId?: number;
 }
 
-function getWordPressApiUrl(): string {
+
+// url
+
+function getWordPressApiUrl(): string | null {
   const apiUrl = process.env.WORDPRESS_API_URL?.trim();
 
   if (!apiUrl) {
-    throw new Error(
+    console.warn(
       "WORDPRESS_API_URL is missing from the environment variables.",
     );
+
+    return null;
   }
 
   return apiUrl.replace(/\/$/, "");
 }
 
+
 async function throwWordPressError(
   response: Response,
   requestName: string,
-): Promise<never> {
-  const responseBody = await response.text();
-
-  throw new Error(
-    `${requestName} failed with status ${response.status}. ${responseBody.slice(0, 300)}`,
+): Promise<void> {
+  console.error(
+    `${requestName} failed: HTTP ${response.status} ${response.statusText}`,
   );
 }
+
 
 /**
  * Query 1:
@@ -247,7 +252,6 @@ export async function getTourCards({
   }
 }
 
-
 /**
  * Query 2:
  * Returns the complete tour using its slug.
@@ -258,41 +262,49 @@ export async function getTourCards({
 
 export const getTourBySlug = cache(
   async (slug: string): Promise<WordPressTourDetails | null> => {
-    const normalizedSlug = slug.trim();
+    try {
+      const normalizedSlug = slug.trim();
 
-    if (!normalizedSlug) {
-      return null;
-    }
+      if (!normalizedSlug) {
+        return null;
+      }
 
-    const query = new URLSearchParams({
-      slug: normalizedSlug,
-      status: "publish",
-      per_page: "1",
-      _embed: "1",
-      acf_format: "standard",
-    });
+      const apiUrl = getWordPressApiUrl();
 
-    const response = await fetch(
-      `${getWordPressApiUrl()}/tours?${query.toString()}`,
-      {
+      if (!apiUrl) {
+        return null;
+      }
+
+      const query = new URLSearchParams({
+        slug: normalizedSlug,
+        status: "publish",
+        per_page: "1",
+        _embed: "1",
+        acf_format: "standard",
+      });
+
+      const response = await fetch(`${apiUrl}/tours?${query.toString()}`, {
         next: {
-          revalidate: 300,
+          revalidate: 3600,
           tags: ["wordpress-tours", `wordpress-tour-${normalizedSlug}`],
         },
-      },
-    );
+      });
 
-    if (!response.ok) {
-      await throwWordPressError(response, "Fetching tour details");
+      if (!response.ok) {
+        await throwWordPressError(response, "Fetching tour details");
+
+        return null;
+      }
+
+      const tours = (await response.json()) as WordPressTourDetails[];
+
+      return tours[0] ?? null;
+    } catch (error) {
+      console.error("Tour details fetching error:", error);
+      return null;
     }
-
-    const tours = (await response.json()) as WordPressTourDetails[];
-
-    return tours[0] ?? null;
   },
 );
-
-
 
 export function getTourFeaturedImage(
   tour: WordPressTourCard | WordPressTourDetails,
@@ -353,7 +365,6 @@ export function htmlToText(value: string | null | undefined): string {
 }
 
 // departure cities
-
 export interface DepartureCity {
   id: number;
   name: string;
@@ -363,28 +374,41 @@ export interface DepartureCity {
 }
 
 export async function getDepartureCities(): Promise<DepartureCity[]> {
-  const query = new URLSearchParams({
-    per_page: "100",
-    orderby: "name",
-    order: "asc",
-    hide_empty: "true",
-  });
+  try {
+    const apiUrl = getWordPressApiUrl();
 
-  const response = await fetch(
-    `${getWordPressApiUrl()}/departure_city?${query.toString()}`,
-    {
-      next: {
-        revalidate: 300,
-        tags: ["wordpress-departure-cities"],
+    if (!apiUrl) {
+      return [];
+    }
+
+    const query = new URLSearchParams({
+      per_page: "100",
+      orderby: "name",
+      order: "asc",
+      hide_empty: "true",
+    });
+
+    const response = await fetch(
+      `${apiUrl}/departure_city?${query.toString()}`,
+      {
+        next: {
+          revalidate: 3600,
+          tags: ["wordpress-departure-cities"],
+        },
       },
-    },
-  );
+    );
 
-  if (!response.ok) {
-    await throwWordPressError(response, "Fetching departure cities");
+    if (!response.ok) {
+      await throwWordPressError(response, "Fetching departure cities");
+
+      return [];
+    }
+
+    return (await response.json()) as DepartureCity[];
+  } catch (error) {
+    console.error("Departure cities fetching error:", error);
+    return [];
   }
-
-  return (await response.json()) as DepartureCity[];
 }
 
 // itinerary parsing
@@ -447,57 +471,66 @@ export function createTourWhatsAppHref(
 export async function getToursByIds(
   ids: number[],
 ): Promise<WordPressTourCard[]> {
-  const validIds = ids.filter((id) => Number.isInteger(id) && id > 0);
+  try {
+    const validIds = ids.filter((id) => Number.isInteger(id) && id > 0);
 
-  if (validIds.length === 0) {
-    return [];
-  }
+    if (validIds.length === 0) {
+      return [];
+    }
 
-  const query = new URLSearchParams({
-    status: "publish",
-    include: validIds.join(","),
-    orderby: "include",
-    per_page: String(Math.min(validIds.length, 100)),
-    _embed: "wp:featuredmedia,wp:term",
-    acf_format: "standard",
-    _fields: [
-      "id",
-      "slug",
-      "title",
-      "excerpt",
-      "featured_media",
-      "departure_city",
-      "tour_tags",
-      "acf.duration",
-      "acf.start_location",
-      "acf.end_location",
-      "acf.price_from",
-      "acf.currency",
-      "acf.group_size",
-      "_links",
-      "_embedded",
-    ].join(","),
-  });
+    const apiUrl = getWordPressApiUrl();
 
-  const response = await fetch(
-    `${getWordPressApiUrl()}/tours?${query.toString()}`,
-    {
+    if (!apiUrl) {
+      return [];
+    }
+
+    const query = new URLSearchParams({
+      status: "publish",
+      include: validIds.join(","),
+      orderby: "include",
+      per_page: String(Math.min(validIds.length, 100)),
+      _embed: "wp:featuredmedia,wp:term",
+      acf_format: "standard",
+      _fields: [
+        "id",
+        "slug",
+        "title",
+        "excerpt",
+        "featured_media",
+        "departure_city",
+        "tour_tags",
+        "acf.duration",
+        "acf.start_location",
+        "acf.end_location",
+        "acf.price_from",
+        "acf.currency",
+        "acf.group_size",
+        "_links",
+        "_embedded",
+      ].join(","),
+    });
+
+    const response = await fetch(`${apiUrl}/tours?${query.toString()}`, {
       next: {
-        revalidate: 300,
+        revalidate: 3600,
         tags: ["wordpress-tours", "wordpress-related-tours"],
       },
-    },
-  );
+    });
 
-  if (!response.ok) {
-    await throwWordPressError(response, "Fetching related tours");
+    if (!response.ok) {
+      await throwWordPressError(response, "Fetching related tours");
+
+      return [];
+    }
+
+    return (await response.json()) as WordPressTourCard[];
+  } catch (error) {
+    console.error("Related tours fetching error:", error);
+    return [];
   }
-
-  return (await response.json()) as WordPressTourCard[];
 }
 
 // getALL tours
-
 export async function getAllTourCards(): Promise<WordPressTourCard[]> {
   const firstPage = await getTourCards({
     page: 1,
@@ -544,47 +577,50 @@ export async function getDepartureCityBySlug(
   );
 }
 
+
+
 //get all tours slugs
-
 export async function getTourSlugs(): Promise<string[]> {
-  const firstPageQuery = new URLSearchParams({
-    status: "publish",
-    page: "1",
-    per_page: "100",
-    _fields: "slug",
-  });
+  try {
+    const apiUrl = getWordPressApiUrl();
 
-  const firstResponse = await fetch(
-    `${getWordPressApiUrl()}/tours?${firstPageQuery.toString()}`,
-    {
-      next: {
-        revalidate: 300,
-        tags: ["wordpress-tour-slugs"],
+    if (!apiUrl) {
+      return [];
+    }
+
+    const firstPageQuery = new URLSearchParams({
+      status: "publish",
+      page: "1",
+      per_page: "100",
+      _fields: "slug",
+    });
+
+    const firstResponse = await fetch(
+      `${apiUrl}/tours?${firstPageQuery.toString()}`,
+      {
+        next: {
+          revalidate: 3600,
+          tags: ["wordpress-tour-slugs"],
+        },
       },
-    },
-  );
+    );
 
-  if (!firstResponse.ok) {
-    await throwWordPressError(firstResponse, "Fetching tour slugs");
-  }
+    if (!firstResponse.ok) {
+      await throwWordPressError(firstResponse, "Fetching tour slugs");
 
-  const firstPage = (await firstResponse.json()) as Array<{
-    slug: string;
-  }>;
+      return [];
+    }
 
-  const totalPages = Math.max(
-    1,
-    Number(firstResponse.headers.get("X-WP-TotalPages") ?? 1),
-  );
+    const firstPage = (await firstResponse.json()) as Array<{
+      slug: string;
+    }>;
 
-  if (totalPages === 1) {
-    return firstPage.map((tour) => tour.slug.trim()).filter(Boolean);
-  }
+    const totalPages = Math.max(1,Number(firstResponse.headers.get("X-WP-TotalPages") ?? 1),);
 
-  const remainingPages = await Promise.all(
-    Array.from({ length: totalPages - 1 }, async (_, index) => {
-      const page = index + 2;
+    const allTours = [...firstPage];
 
+    // Requêtes séquentielles pour éviter de surcharger Hostinger
+    for (let page = 2; page <= totalPages; page += 1) {
       const query = new URLSearchParams({
         status: "publish",
         page: String(page),
@@ -592,29 +628,31 @@ export async function getTourSlugs(): Promise<string[]> {
         _fields: "slug",
       });
 
-      const response = await fetch(
-        `${getWordPressApiUrl()}/tours?${query.toString()}`,
-        {
-          next: {
-            revalidate: 300,
-            tags: ["wordpress-tour-slugs"],
-          },
+      const response = await fetch(`${apiUrl}/tours?${query.toString()}`, {
+        next: {
+          revalidate: 3600,
+          tags: ["wordpress-tour-slugs"],
         },
-      );
+      });
 
       if (!response.ok) {
         await throwWordPressError(response, `Fetching tour slugs page ${page}`);
+
+        continue;
       }
 
-      return (await response.json()) as Array<{
+      const tours = (await response.json()) as Array<{
         slug: string;
       }>;
-    }),
-  );
 
-  const allTours = [...firstPage, ...remainingPages.flat()];
+      allTours.push(...tours);
+    }
 
-  return Array.from(
-    new Set(allTours.map((tour) => tour.slug.trim()).filter(Boolean)),
-  );
+    return Array.from(
+      new Set(allTours.map((tour) => tour.slug.trim()).filter(Boolean)),
+    );
+  } catch (error) {
+    console.error("Tour slugs fetching error:", error);
+    return [];
+  }
 }

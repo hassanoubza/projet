@@ -5,40 +5,51 @@ import WhyUs from "@/components/section/Home/WhyUs";
 import CustomizeTour from "@/components/section/Home/CustomizeTour";
 import TopBlogs from "@/components/section/Home/Topblogs";
 import Tourmarakech from "@/components/section/Home/Tourmarakech";
-import { getBlogPosts, htmlToText } from "@/lib/wordpress";
-import { getDepartureCityBySlug, getTourCards } from "@/lib/tours";
-import { notFound } from "next/navigation";
 import MarrakechActivitiesPreview from "@/components/section/Home/MarrakechActivitiesPreview";
 import TopDayTrips from "@/components/section/Home/TopDayTrips";
 
-export const revalidate = 300;
+import { getTopBlogPosts, htmlToText } from "@/lib/wordpress";
+import {
+  getDepartureCityBySlug,
+  getTourCards,
+  type PaginatedTourCards,
+} from "@/lib/tours";
+
+
+export const revalidate = 3600;
+
+const HOME_TOURS_PER_PAGE = 6;
+
+function createEmptyTourResult(): PaginatedTourCards {
+  return {
+    tours: [],
+    totalTours: 0,
+    totalPages: 1,
+    currentPage: 1,
+    perPage: HOME_TOURS_PER_PAGE,
+  };
+}
 
 export default async function Home(): Promise<React.JSX.Element> {
-  const postsPromise = getBlogPosts(4);
 
-  const departureCity = await getDepartureCityBySlug("marrakech");
 
-  if (!departureCity) {
-    notFound();
-  }
-
-  const [tourResult, posts] = await Promise.all([
-    getTourCards({
-      page: 1,
-      perPage: 6,
-      departureCityId: departureCity.id,
-    }),
-    postsPromise,
+  const [posts, departureCity] = await Promise.all([
+    getTopBlogPosts(4),
+    getDepartureCityBySlug("marrakech"),
   ]);
 
-  const cityName = htmlToText(departureCity.name);
+  const tourResult = departureCity ? await getTourCards({ page: 1, perPage: HOME_TOURS_PER_PAGE, departureCityId: departureCity.id,}) : createEmptyTourResult();
+
+  const cityName = departureCity ? htmlToText(departureCity.name) : "Marrakech";
 
   return (
     <>
       <Hero />
       <CustomizeTour />
       <WhyUs />
+
       <Tourmarakech tourResult={tourResult} cityName={cityName} />
+
       <MarrakechActivitiesPreview />
       <TopDayTrips limit={3} />
       <TopBlogs posts={posts} />

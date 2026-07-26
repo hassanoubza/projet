@@ -55,9 +55,9 @@ function removeImagesFromContent(html: string): string {
     .trim();
 }
 
-export async function generateMetadata({
-  params,
-}: BlogPostPageProps): Promise<Metadata> {
+
+export async function generateMetadata({params,}: BlogPostPageProps): Promise<Metadata> {
+
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
 
@@ -133,9 +133,10 @@ export default async function BlogPostPage({
     notFound();
   }
 
-  const latestPosts = await getBlogPosts(4);
+  const { posts: latestPosts } = await getBlogPosts(1, 5);
   const otherPosts = latestPosts.filter((latestPost) => latestPost.id !== post.id).slice(0, 4);
 
+  
   const title = htmlToText(post.title.rendered);
   const description = getPostDescription(post);
   const image = getFeaturedImage(post);

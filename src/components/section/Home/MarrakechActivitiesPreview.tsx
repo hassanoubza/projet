@@ -6,6 +6,8 @@ import {
   marrakechActivities,
 } from "@/components/section/activities/activity.data";
 
+
+
 export default function MarrakechActivitiesPreview(): React.JSX.Element {
   const featuredActivity = getFeaturedActivity();
 

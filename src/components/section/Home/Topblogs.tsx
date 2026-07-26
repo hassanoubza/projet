@@ -1,18 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  getBlogPosts,
   getFeaturedImage,
   getPostCategories,
   getPostTags,
   htmlToText,
 } from "@/lib/wordpress";
 
-type BlogPosts = Awaited<ReturnType<typeof getBlogPosts>>;
+import type { WordPressBlogCard } from "@/lib/wordpress";
+
 
 interface TopBlogsProps {
-  posts: BlogPosts;
+  posts: WordPressBlogCard[];
 }
+
 
 function formatDate(date: string): string {
   return new Intl.DateTimeFormat("en-US", {
@@ -22,7 +23,7 @@ function formatDate(date: string): string {
   }).format(new Date(date));
 }
 
-export default async function TopBlogs({posts,}: TopBlogsProps): Promise<React.JSX.Element | null> {
+export default function TopBlogs({posts,}: TopBlogsProps):React.JSX.Element | null {
 
   
   if (posts.length === 0) {
