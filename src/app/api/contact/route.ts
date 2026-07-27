@@ -11,7 +11,7 @@ interface ContactRequestBody {
 }
 
 function escapeHtml(value: string): string {
-  const characters: Record<string, string> = {
+  const entities: Record<string, string> = {
     "&": "&amp;",
     "<": "&lt;",
     ">": "&gt;",
@@ -19,7 +19,7 @@ function escapeHtml(value: string): string {
     "'": "&#039;",
   };
 
-  return value.replace(/[&<>"']/g, (character) => characters[character]);
+  return value.replace(/[&<>"']/g, (char) => entities[char]);
 }
 
 export async function POST(request: Request) {
@@ -27,8 +27,11 @@ export async function POST(request: Request) {
     const body = (await request.json()) as ContactRequestBody;
 
     const name = typeof body.name === "string" ? body.name.trim() : "";
+
     const email = typeof body.email === "string" ? body.email.trim() : "";
+
     const phone = typeof body.phone === "string" ? body.phone.trim() : "";
+
     const message = typeof body.message === "string" ? body.message.trim() : "";
 
     if (!name || !email || !message) {
@@ -44,9 +47,13 @@ export async function POST(request: Request) {
     }
 
     const smtpHost = process.env.SMTP_HOST?.trim();
+
     const smtpUser = process.env.SMTP_USER?.trim();
-    const smtpPassword = process.env.SMTP_PASSWORD;
+
+    const smtpPassword = process.env.SMTP_PASSWORD?.trim();
+
     const contactEmail = process.env.CONTACT_EMAIL?.trim();
+
     const smtpPort = Number(process.env.SMTP_PORT ?? "465");
 
     if (
@@ -69,70 +76,104 @@ export async function POST(request: Request) {
       );
     }
 
-    const transporter = nodemailer.createTransport({
+    console.log("SMTP CONFIG:", {
       host: smtpHost,
       port: smtpPort,
+      user: smtpUser,
+      secure: smtpPort === 465,
+      passwordExists: true,
+      passwordLength: smtpPassword.length,
+    });
 
-      // true pour 465, false pour 587
+    const transporter = nodemailer.createTransport({
+      host: smtpHost,
+
+      port: smtpPort,
+
+      // Hostinger SSL 465
       secure: smtpPort === 465,
 
       auth: {
         user: smtpUser,
+
         pass: smtpPassword,
       },
 
-      connectionTimeout: 15_000,
-      greetingTimeout: 10_000,
-      socketTimeout: 20_000,
+      connectionTimeout: 30000,
+
+      greetingTimeout: 20000,
+
+      socketTimeout: 20000,
     });
 
-    // Garde temporairement cette ligne pour diagnostiquer le déploiement.
+    // Vérifie la connexion SMTP
     await transporter.verify();
 
     const safeName = escapeHtml(name);
+
     const safeEmail = escapeHtml(email);
+
     const safePhone = escapeHtml(phone || "Not provided");
-    const safeMessage = escapeHtml(message).replace(/\n/g, "<br />");
+
+    const safeMessage = escapeHtml(message).replace(/\n/g, "<br/>");
 
     const info = await transporter.sendMail({
       from: `"Trips To Marrakech" <${smtpUser}>`,
+
       to: contactEmail,
+
       replyTo: email,
+
       subject: `New travel request from ${name}`,
 
       text: `
 New Contact Request
 
 Name: ${name}
+
 Email: ${email}
+
 Phone: ${phone || "Not provided"}
 
 Message:
 ${message}
-      `.trim(),
+`,
 
       html: `
-        <h2>New Contact Request</h2>
+<h2>New Contact Request</h2>
 
-        <p><strong>Name:</strong> ${safeName}</p>
-        <p><strong>Email:</strong> ${safeEmail}</p>
-        <p><strong>Phone:</strong> ${safePhone}</p>
+<p>
+<strong>Name:</strong>
+${safeName}
+</p>
 
-        <p><strong>Message:</strong></p>
-        <p>${safeMessage}</p>
-      `,
+
+<p>
+<strong>Email:</strong>
+${safeEmail}
+</p>
+
+
+<p>
+<strong>Phone:</strong>
+${safePhone}
+</p>
+
+
+<p>
+<strong>Message:</strong>
+</p>
+
+<p>
+${safeMessage}
+</p>
+`,
     });
 
-    console.log("SMTP email result:", {
+    console.log("Email sent successfully:", {
       messageId: info.messageId,
       accepted: info.accepted,
-      rejected: info.rejected,
-      response: info.response,
     });
-
-    if (!info.accepted || info.accepted.length === 0) {
-      throw new Error("The SMTP server did not accept the recipient.");
-    }
 
     return NextResponse.json({
       success: true,
