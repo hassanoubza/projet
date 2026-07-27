@@ -18,6 +18,97 @@ import {
 
 export const revalidate = 3600;
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Private Morocco Tours & Marrakech Day Trips | Trips To Marrakech",
+
+  description:
+    "Discover private Morocco tours, Marrakech day trips, Sahara Desert journeys and custom itineraries designed by local travel experts.",
+
+  applicationName: "Trips To Marrakech",
+
+  keywords: [
+    "trips to Marrakech",
+    "private Morocco tours",
+    "Marrakech tours",
+    "Marrakech day trips",
+    "Sahara Desert tours",
+    "Merzouga desert tours",
+    "Atlas Mountains excursions",
+    "Morocco private driver",
+    "Morocco travel agency",
+    "custom Morocco itinerary",
+    "tours from Marrakech",
+    "Morocco desert trips",
+  ],
+
+  authors: [
+    {
+      name: "Trips To Marrakech",
+      url: "https://www.tripstomarrakech.com",
+    },
+  ],
+
+  creator: "Trips To Marrakech",
+  publisher: "Trips To Marrakech",
+
+  category: "Travel",
+
+  alternates: {
+    canonical: "https://www.tripstomarrakech.com/",
+  },
+
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+
+    url: "https://www.tripstomarrakech.com/",
+
+    siteName: "Trips To Marrakech",
+
+    title: "Private Morocco Tours & Marrakech Day Trips | Trips To Marrakech",
+
+    description:
+      "Explore Morocco through private tours, Marrakech excursions, Sahara Desert adventures and personalized itineraries created by local experts.",
+
+    images: [
+      {
+        url: "https://www.tripstomarrakech.com/images/marakechh.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Private Morocco tours and Marrakech day trips with Trips To Marrakech",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title: "Private Morocco Tours & Marrakech Day Trips | Trips To Marrakech",
+
+    description:
+      "Plan private Morocco tours, Sahara Desert journeys, Marrakech day trips and customized itineraries with local travel experts.",
+
+    images: ["https://www.tripstomarrakech.com/images/marakechh.jpeg"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
+
+
 const HOME_TOURS_PER_PAGE = 6;
 
 function createEmptyTourResult(): PaginatedTourCards {

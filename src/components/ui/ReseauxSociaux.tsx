@@ -1,12 +1,10 @@
 import React from "react";
 
 import {
-  FaFacebookF,
   FaInstagram,
   FaWhatsapp,
 } from "react-icons/fa";
 
-import { BsTwitterX } from "react-icons/bs";
 
 type SocialItem = {
   name: string;
@@ -18,14 +16,8 @@ type SocialItem = {
 
 const socials: SocialItem[] = [
   {
-    name: "Facebook",
-    link: "https://www.facebook.com/tripstomarrakechdemo",
-    bg: "bg-[#1877F2]",
-    icon: <FaFacebookF aria-hidden="true" />,
-  },
-  {
     name: "Instagram",
-    link: "https://www.instagram.com/tripstomarrakechdemo",
+    link: "https://www.instagram.com/tripstomarrakech?igsh=MXE2b3d1YWFlZGhjcA%3D%3D&utm_source=qr",
     bg: "bg-gradient-to-tr from-[#833AB4] via-[#E1306C] to-[#FCAF45]",
     icon: <FaInstagram aria-hidden="true" />,
   },
@@ -35,19 +27,13 @@ const socials: SocialItem[] = [
     bg: "bg-[#25D366]",
     icon: <FaWhatsapp aria-hidden="true" />,
   },
-  {
-    name: "X",
-    link: "https://x.com/tripstomarrakechdemo",
-    bg: "bg-neutral-950",
-    icon: <BsTwitterX aria-hidden="true" />,
-  },
 ];
 
 
 
 function ReseauxSociaux(): React.JSX.Element {
   return (
-    <div className="mt-5 flex flex-wrap items-center gap-4 sm:gap-3">
+    <div className="mt-3 flex flex-wrap items-center gap-4 sm:gap-5">
       {socials.map((social) => (
         <a
           key={social.name}
@@ -61,7 +47,7 @@ function ReseauxSociaux(): React.JSX.Element {
             text-white shadow-sm
             transition-all duration-300
             hover:-translate-y-1 hover:scale-105 hover:shadow-md
-            focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2
+            focus:outline-non focus:ring-offset-2
             ${social.bg}
           `}
         >

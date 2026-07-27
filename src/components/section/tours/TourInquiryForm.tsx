@@ -9,15 +9,16 @@ interface TourInquiryFormProps {
   tourSlug: string;
 }
 
+
 const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
 
-export default function TourInquiryForm({
-  tourTitle,
-  tourSlug,
-}: TourInquiryFormProps): React.JSX.Element {
+export default function TourInquiryForm({tourTitle,tourSlug,}: TourInquiryFormProps): React.JSX.Element {
+
+
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+
 
   function handleSubmit(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault();
@@ -53,6 +54,8 @@ export default function TourInquiryForm({
 
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   }
+
+
 
   return (
     <section className="sticky top-40 space-y-4">
@@ -147,10 +150,6 @@ export default function TourInquiryForm({
             with you.
           </p>
         </form>
-      </div>
-
-      <div className="flex justify-center">
-        <ReseauxSociaux />
       </div>
     </section>
   );

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
       "Meaningful ways to spend your time in Marrakech, from desert evenings and balloon flights to guided walks and Moroccan cooking.",
     images: [
       {
-        url: "/images/activities/agafay-desert-sunset.jpg",
+        url: "/images/activities/agafy.webp",
         alt: "Sunset dinner in the Agafay Desert near Marrakech",
       },
     ],

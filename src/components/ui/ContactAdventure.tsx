@@ -12,15 +12,15 @@ const contactItems = [
   },
   {
     title: "Call us",
-    value: "+212 787 996 288",
-    href: "tel:+212787996288",
+    value: "+212 643 577 845",
+    href: "tel:+212643577845",
     icon: Headphones,
     ariaLabel: "Call Trips to Marrakech",
   },
   {
     title: "Follow us",
     value: "@tripstomarrakech",
-    href: "https://www.instagram.com/tripstomarrakech",
+    href: "https://www.instagram.com/tripstomarrakech?igsh=MXE2b3d1YWFlZGhjcA%3D%3D&utm_source=qr",
     icon: FaInstagram,
     ariaLabel: "Follow Trips to Marrakech on Instagram",
   },

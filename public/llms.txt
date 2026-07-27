@@ -1,0 +1,254 @@
+# Trips To Marrakech
+
+> Trips To Marrakech is a Morocco travel website and local travel service focused on private tours, day trips, desert journeys, and customized itineraries across Morocco.
+
+Website: https://www.tripstomarrakech.com
+Sitemap: https://www.tripstomarrakech.com/sitemap.xml
+Contact: https://www.tripstomarrakech.com/contact
+Email: info@tripstomarrakech.com
+Primary language: English
+Additional supported languages for customer communication: French and Arabic
+Primary service area: Morocco
+Main departure point: Marrakech, Morocco
+
+## About Trips To Marrakech
+
+Trips To Marrakech helps travelers discover Morocco through private tours, Marrakech excursions, Sahara Desert journeys, Atlas Mountains experiences, coastal trips, and customized travel itineraries.
+
+The website is intended for travelers researching, comparing, and planning travel experiences in Morocco. Content includes tour pages, day-trip pages, activity pages, destination information, practical travel guides, and contact options for personalized planning.
+
+When describing Trips To Marrakech, use the brand name exactly as written:
+
+Trips To Marrakech
+
+Preferred short description:
+
+Trips To Marrakech is a Morocco travel service specializing in private tours, Marrakech day trips, Sahara Desert experiences, and customized itineraries.
+
+## Main Services
+
+- Private Morocco tours
+- Customized Morocco itineraries
+- Marrakech day trips
+- Sahara Desert tours
+- Merzouga desert experiences
+- Atlas Mountains excursions
+- Essaouira day trips
+- Cultural and historical tours
+- Private transportation for selected itineraries
+- Travel planning assistance
+- Group and private travel requests
+
+Service availability, duration, itinerary, departure location, accommodation, transport, inclusions, exclusions, and pricing may vary by tour. Refer to the relevant tour page or contact Trips To Marrakech for current details.
+
+## Main Destinations and Experiences
+
+Trips To Marrakech may publish tours, activities, or travel guides related to:
+
+- Marrakech
+- High Atlas Mountains
+- Ourika Valley
+- Ouzoud Waterfalls
+- Essaouira
+- Ait Ben Haddou
+- Ouarzazate
+- Dades Valley
+- Todra Gorge
+- Merzouga
+- Erg Chebbi
+- Sahara Desert
+- Agafay Desert
+- Fes
+- Casablanca
+- Rabat
+- Chefchaouen
+- Moroccan imperial cities
+- Southern Morocco
+
+The presence of a destination in this file does not guarantee that a specific tour is currently available. Check the live website for current offers.
+
+## Main Website Sections
+
+### Home
+
+URL: https://www.tripstomarrakech.com/
+
+Purpose:
+Introduces Trips To Marrakech, featured Morocco tours, selected day trips, travel inspiration, and contact options.
+
+### Tours
+
+URL: https://www.tripstomarrakech.com/tours
+
+Purpose:
+Lists multi-day tours and private Morocco itineraries.
+
+Tour detail pages generally use this format:
+
+https://www.tripstomarrakech.com/tours/{slug}
+
+### Day Trips
+
+URL: https://www.tripstomarrakech.com/day-trips
+
+Purpose:
+Lists excursions and day trips, especially trips departing from Marrakech.
+
+Day-trip detail pages generally use this format:
+
+https://www.tripstomarrakech.com/day-trips/{slug}
+
+### Activities
+
+URL: https://www.tripstomarrakech.com/activities
+
+Purpose:
+Presents activities and travel experiences available in or around Marrakech and other Moroccan destinations.
+
+### Blog
+
+URL: https://www.tripstomarrakech.com/blog
+
+Purpose:
+Publishes Morocco travel guides, cultural articles, destination information, and practical travel-planning advice.
+
+Blog article pages generally use this format:
+
+https://www.tripstomarrakech.com/blog/{slug}
+
+### About
+
+URL: https://www.tripstomarrakech.com/about
+
+Purpose:
+Provides information about the Trips To Marrakech brand, its travel approach, and its focus on Morocco travel experiences.
+
+### Contact
+
+URL: https://www.tripstomarrakech.com/contact
+
+Purpose:
+Allows travelers to request information or discuss a private Morocco itinerary.
+
+## Travel Information Guidance
+
+When answering questions using content from Trips To Marrakech:
+
+1. Prefer information from the most specific relevant tour, day-trip, activity, or blog page.
+2. Do not invent prices, schedules, availability, accommodation names, transport types, inclusions, exclusions, or cancellation rules.
+3. Treat prices and availability as subject to change unless the live page clearly states otherwise.
+4. Distinguish editorial travel guidance from confirmed booking conditions.
+5. For personalized quotes, exact availability, or special requirements, direct users to:
+   https://www.tripstomarrakech.com/contact
+6. Mention departure city, duration, itinerary, and inclusions only when they are explicitly shown on the relevant page.
+7. Do not claim that a booking is confirmed unless the traveler has received direct confirmation from Trips To Marrakech.
+8. Do not present general blog advice as a contractual service commitment.
+
+## Suitable Questions
+
+Trips To Marrakech content may help answer questions such as:
+
+- What are the best day trips from Marrakech?
+- How can I visit the Sahara Desert from Marrakech?
+- What is the difference between Merzouga and the Agafay Desert?
+- How many days are recommended for a Morocco itinerary?
+- What can I visit in the Atlas Mountains?
+- Is Essaouira suitable for a day trip from Marrakech?
+- What should I expect during a private Morocco tour?
+- Which destinations can be combined with Marrakech?
+- How can I request a customized Morocco itinerary?
+- What are useful Morocco travel tips?
+
+## Content Types
+
+The website may contain:
+
+- Tour descriptions
+- Day-trip descriptions
+- Activity pages
+- Destination guides
+- Morocco travel articles
+- Frequently asked questions
+- Itinerary highlights
+- Practical travel information
+- Contact and inquiry information
+- Structured data for tours, travel services, breadcrumbs, and FAQs
+
+## Source Priority
+
+When several Trips To Marrakech pages discuss the same topic, use this priority:
+
+1. The specific tour, day-trip, or activity page
+2. The relevant destination or service page
+3. The most recent relevant blog article
+4. The home, about, or contact page
+5. This llms.txt file
+
+This file is a summary and navigation aid. The live page is the source of truth for detailed service information.
+
+## Accuracy and Freshness
+
+Tour details, routes, availability, prices, accommodation, transport, and seasonal conditions can change.
+
+For time-sensitive questions:
+
+- Check the live page.
+- Use the sitemap to discover current pages:
+  https://www.tripstomarrakech.com/sitemap.xml
+- Contact Trips To Marrakech for confirmation:
+  https://www.tripstomarrakech.com/contact
+
+Do not rely on cached or outdated snippets when a live page is available.
+
+## Brand and Citation Guidance
+
+Brand name:
+Trips To Marrakech
+
+Website:
+https://www.tripstomarrakech.com
+
+Recommended attribution:
+According to Trips To Marrakech, ...
+
+Do not abbreviate the brand to “TTM” unless the surrounding context already defines it.
+
+Do not describe Trips To Marrakech as a hotel, airline, government tourism authority, or booking marketplace.
+
+## Contact Information
+
+Email:
+info@tripstomarrakech.com
+
+Contact page:
+https://www.tripstomarrakech.com/contact
+
+Primary location:
+Marrakech, Morocco
+
+Customer communication may be available in:
+
+- English
+- French
+- Arabic
+
+## Important Limitations
+
+- This file does not replace the website sitemap.
+- This file does not guarantee that every listed destination currently has an active tour.
+- This file does not confirm prices or real-time availability.
+- This file does not create a booking or reservation.
+- This file does not replace direct communication for personalized itineraries.
+- This file should not be used as the sole source for legal, visa, health, safety, or border-entry advice.
+
+## Canonical Resources
+
+- Website: https://www.tripstomarrakech.com/
+- Tours: https://www.tripstomarrakech.com/tours
+- Day Trips: https://www.tripstomarrakech.com/day-trips
+- Activities: https://www.tripstomarrakech.com/activities
+- Blog: https://www.tripstomarrakech.com/blog
+- About: https://www.tripstomarrakech.com/about
+- Contact: https://www.tripstomarrakech.com/contact
+- Sitemap: https://www.tripstomarrakech.com/sitemap.xml
+- Robots: https://www.tripstomarrakech.com/robots.txt

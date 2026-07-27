@@ -1,7 +1,72 @@
 import DayTripCard from "@/components/section/day-trips/DayTripCard";
 import { getDayTripCardsGroupedByDepartureCity } from "@/lib/day-trips";
+import type { Metadata } from "next";
 
 export const revalidate = 300;
+
+
+export const metadata: Metadata = {
+  title: "Morocco Day Trips & Excursions | Trips To Marrakech",
+
+  description:
+    "Discover private Morocco day trips from Marrakech and other major cities. Explore Essaouira, Ouzoud Waterfalls, Ourika Valley, Ait Ben Haddou and more with comfortable transport and flexible itineraries.",
+
+  alternates: {
+    canonical: "https://www.tripstomarrakech.com/day-trips",
+  },
+
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.tripstomarrakech.com/day-trips",
+    siteName: "Trips To Marrakech",
+
+    title: "Morocco Day Trips & Excursions | Trips To Marrakech",
+
+    description:
+      "Explore private day trips from Marrakech and other Moroccan cities, including Essaouira, Ouzoud Waterfalls, Ourika Valley and Ait Ben Haddou.",
+
+    images: [
+      {
+        url: "https://www.tripstomarrakech.com/images/marakech.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Private Morocco day trips and excursions from Marrakech",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title: "Morocco Day Trips & Excursions | Trips To Marrakech",
+
+    description:
+      "Discover private full-day excursions from Marrakech and other Moroccan cities with flexible itineraries and comfortable transport.",
+
+    images: ["https://www.tripstomarrakech.com/images/marakech.jpeg"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  category: "Travel",
+};
+
+
+
+
 
 export default async function DayTripsPage(): Promise<React.JSX.Element> {
   const citySections = await getDayTripCardsGroupedByDepartureCity();

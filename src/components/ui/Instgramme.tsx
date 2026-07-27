@@ -75,7 +75,7 @@ export default async function InstagramSection(): Promise<React.JSX.Element> {
         </div>
 
         <a
-          href="https://www.instagram.com"
+          href="https://www.instagram.com/tripstomarrakech?igsh=MXE2b3d1YWFlZGhjcA%3D%3D&utm_source=qr"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-10 inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-7 py-3 text-sm font-extrabold text-text-main shadow-sm transition-colors hover:bg-muted hover:text-gold-soft"

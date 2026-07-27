@@ -115,10 +115,10 @@ export default function Footer() {
                 <Phone className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
 
                 <a
-                  href="tel:+212787996288"
+                  href="tel:+212643577845"
                   className="transition hover:text-gold"
                 >
-                  +212 787 9644631
+                  +212643577845
                 </a>
               </li>
 
@@ -126,10 +126,10 @@ export default function Footer() {
                 <Mail className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
 
                 <a
-                  href="mailto:Deluxemoroccotrips@gmail.com"
+                  href="mailto:info@tripstomarrakech.com"
                   className="break-all transition hover:text-gold"
                 >
-                  tripstpmarakech@gmail.com
+                  info@tripstomarrakech.com
                 </a>
               </li>
             </ul>

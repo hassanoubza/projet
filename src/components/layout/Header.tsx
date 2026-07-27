@@ -169,6 +169,7 @@ function Logo({ onClick }: { onClick?: () => void }): React.JSX.Element {
         width={100}
         height={26}
         priority
+        quality={75}
         sizes="(max-width: 1023px) 112px, 144px"
         className="h-auto w-16 lg:w-24"
       />

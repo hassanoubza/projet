@@ -56,6 +56,7 @@ export async function generateMetadata({
   };
 }
 
+
 export default async function ActivityDetailsPage({params,}: ActivityDetailsPageProps): Promise<React.JSX.Element> {
 
   const { slug } = await params;
