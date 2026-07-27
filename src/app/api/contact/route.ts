@@ -50,7 +50,7 @@ export async function POST(request: Request) {
 
     const smtpUser = process.env.SMTP_USER?.trim();
 
-    const smtpPassword = process.env.SMTP_PASSWORD?.trim();
+    const smtpPassword = process.env.PASSWORD?.trim();
 
     const contactEmail = process.env.CONTACT_EMAIL?.trim();
 
