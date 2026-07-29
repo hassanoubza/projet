@@ -9,11 +9,7 @@ import MarrakechActivitiesPreview from "@/components/section/Home/MarrakechActiv
 import TopDayTrips from "@/components/section/Home/TopDayTrips";
 
 import { getTopBlogPosts, htmlToText } from "@/lib/wordpress";
-import {
-  getDepartureCityBySlug,
-  getTourCards,
-  type PaginatedTourCards,
-} from "@/lib/tours";
+import {getDepartureCityBySlug,getTourCards,type PaginatedTourCards,} from "@/lib/tours";
 
 
 export const revalidate = 3600;
@@ -21,10 +17,9 @@ export const revalidate = 3600;
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Private Morocco Tours & Marrakech Day Trips | Trips To Marrakech",
+  title: "Private Morocco Tours & Marrakech Day Trips",
 
-  description:
-    "Discover private Morocco tours, Marrakech day trips, Sahara Desert journeys and custom itineraries designed by local travel experts.",
+  description: "Book private Morocco tours & Marrakech day trips with local experts. Custom Sahara Desert journeys, Atlas Mountains excursions & tailored itineraries.",
 
   applicationName: "Trips To Marrakech",
 
@@ -107,6 +102,7 @@ export const metadata: Metadata = {
     },
   },
 };
+
 
 
 const HOME_TOURS_PER_PAGE = 6;

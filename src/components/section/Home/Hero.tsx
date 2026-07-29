@@ -12,28 +12,28 @@ export default async function Hero(): Promise<React.JSX.Element> {
       aria-labelledby="hero-title"
     >
       <Image
-        src="/images/hero.webp"
-        alt="Place Jemaa el-Fna animée au coucher du soleil, Marrakech"
+        src="/images/heroo.webp"
+        alt="trips to marakech , Place Jemaa el-Fna animée au coucher du soleil"
         fill
         preload
         sizes="100vw"
         quality={75}
         className="object-cover"
       />
-      
+
+      <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/50 to-black/5" />
 
       <div className="relative z-10 flex w-full max-w-6xl flex-col items-center px-4 text-center">
         {/* TITLE */}
         <h1
           id="hero-title"
           className="
-            text-2xl mt-10 sm:text-5xl lg:text-6xl
-            font-extrabold leading-tight
-            text-heading dark:text-white
-          "
+          text-2xl mt-10 sm:text-5xl lg:text-6xl
+          font-extrabold leading-tight
+        text-white"
         >
-          Morocco Private Tours with
-          <span className="block text-text-main">Trips to Marrakech</span>
+          Private Morocco Tours &
+          <span className="block text-background">Marrakech Day Trips</span>
         </h1>
 
         {/* DESCRIPTION */}

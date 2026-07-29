@@ -17,7 +17,7 @@ export default function Whatsapp(): React.JSX.Element {
     >
       <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-white shadow-xl transition-transform duration-300 group-hover:scale-110">
         <span
-          className="absolute inset-0 rounded-full bg-accent opacity-30"
+          className="absolute inset-0 rounded-full bg-primary"
           aria-hidden="true"
         />
 

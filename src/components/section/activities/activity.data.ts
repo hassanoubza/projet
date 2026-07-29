@@ -4,7 +4,7 @@ export const marrakechActivities: MarrakechActivity[] = [
   {
     id: "marrakech-hot-air-balloon",
     slug: "marrakech-hot-air-balloon-flight",
-    title: "Marrakech Sunrise Hot Air Balloon Flight",
+    title: "Marrakech Hot Air Balloon Flight",
     shortTitle: "Sunrise Balloon Flight",
     category: "Air adventure",
     eyebrow: "Marrakech from another perspective",
@@ -86,7 +86,7 @@ export const marrakechActivities: MarrakechActivity[] = [
     ],
     faq: [
       {
-        question: "How long is the balloon flight?",
+        question: "How long is the Marrakech hot air balloon?",
         answer:
           "Flight duration varies with wind and weather conditions, but it is commonly around one hour.",
       },
@@ -96,20 +96,21 @@ export const marrakechActivities: MarrakechActivity[] = [
           "The flight may be postponed, rescheduled or cancelled when the crew considers conditions unsafe.",
       },
       {
-        question: "Is hotel pickup included?",
+        question:
+          "Is hotel pickup included on the Marrakech hot air balloon?",
         answer:
           "Yes. Early-morning pickup and return transportation from Marrakech are included.",
       },
       {
-        question: "Can children join the activity?",
+        question: "Can children join this Marrakech hot air balloon activity?",
         answer:
           "Age and height restrictions may apply. These should be confirmed before booking.",
       },
     ],
     seo: {
-      title: "Marrakech Hot Air Balloon Flight at Sunrise",
+      title: "Marrakech Hot Air Balloon at Sunrise",
       description:
-        "Fly over the Marrakech countryside at sunrise with hotel transfers, a professional balloon crew and breakfast after landing.",
+        "Book your Marrakech hot air balloon at sunrise with hotel transfers, a professional crew and breakfast after landing.",
     },
     featured: true,
   },

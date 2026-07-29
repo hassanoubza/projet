@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.tripstomarrakech.com/about",
+    canonical: "https://www.tripstomarrakech.com/morocco_tourist",
   },
 
   openGraph: {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     description:
       "Explore Morocco's imperial cities, Sahara Desert, Atlas Mountains and cultural heritage. Discover why Morocco is one of the world's most fascinating travel destinations.",
 
-    url: "https://www.tripstomarrakech.com/about",
+    url: "https://www.tripstomarrakech.com/morocco_tourist",
 
     siteName: "Trips To Marrakech",
 
@@ -89,7 +89,7 @@ const jsonLd = {
 
       "@id": "https://www.tripstomarrakech.com/about#webpage",
 
-      url: "https://www.tripstomarrakech.com/about",
+      url: "https://www.tripstomarrakech.com/morocco_tourist",
 
       name: "Discover Morocco | Culture, Landscapes & Authentic Experiences",
 
@@ -220,7 +220,7 @@ const jsonLd = {
 
           name: "Discover Morocco",
 
-          item: "https://www.tripstomarrakech.com/about",
+          item: "https://www.tripstomarrakech.com/morocco_tourist",
         },
       ],
     },
