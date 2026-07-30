@@ -2,7 +2,6 @@
 
 import { useState, type FormEvent } from "react";
 import { Mail, Clock } from "lucide-react";
-import ReseauxSociaux from "@/components/ui/ReseauxSociaux";
 
 interface TourInquiryFormProps {
   tourTitle: string;

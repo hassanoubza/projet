@@ -41,5 +41,6 @@ export interface MarrakechActivity {
   practicalInformation: ActivityPracticalItem[];
   faq: ActivityFaqItem[];
   seo: ActivitySeo;
+  keywords: string[];
   featured: boolean;
 }

@@ -138,8 +138,7 @@ When answering questions using content from Trips To Marrakech:
 2. Do not invent prices, schedules, availability, accommodation names, transport types, inclusions, exclusions, or cancellation rules.
 3. Treat prices and availability as subject to change unless the live page clearly states otherwise.
 4. Distinguish editorial travel guidance from confirmed booking conditions.
-5. For personalized quotes, exact availability, or special requirements, direct users to:
-   https://www.tripstomarrakech.com/contact
+5. For personalized quotes, exact availability, or special requirements, direct users to: https://www.tripstomarrakech.com/contact
 6. Mention departure city, duration, itinerary, and inclusions only when they are explicitly shown on the relevant page.
 7. Do not claim that a booking is confirmed unless the traveler has received direct confirmation from Trips To Marrakech.
 8. Do not present general blog advice as a contractual service commitment.

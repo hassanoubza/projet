@@ -50,8 +50,7 @@ export async function generateMetadata({
     description: activity.seo.description,
 
     keywords: [
-      activity.title,
-      activity.shortTitle,
+      activity.keywords.join(", "),
       activity.category,
       "Marrakech activities",
       "Morocco excursions",

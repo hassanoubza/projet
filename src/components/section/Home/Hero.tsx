@@ -21,7 +21,7 @@ export default async function Hero(): Promise<React.JSX.Element> {
         className="object-cover"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/50 to-black/5" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/1 via-black/30 to-black/1" />
 
       <div className="relative z-10 flex w-full max-w-6xl flex-col items-center px-4 text-center">
         {/* TITLE */}

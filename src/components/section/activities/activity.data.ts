@@ -96,8 +96,7 @@ export const marrakechActivities: MarrakechActivity[] = [
           "The flight may be postponed, rescheduled or cancelled when the crew considers conditions unsafe.",
       },
       {
-        question:
-          "Is hotel pickup included on the Marrakech hot air balloon?",
+        question: "Is hotel pickup included on the Marrakech hot air balloon?",
         answer:
           "Yes. Early-morning pickup and return transportation from Marrakech are included.",
       },
@@ -112,12 +111,18 @@ export const marrakechActivities: MarrakechActivity[] = [
       description:
         "Book your Marrakech hot air balloon at sunrise with hotel transfers, a professional crew and breakfast after landing.",
     },
+    keywords: [
+      "hot air balloon ride marrakech",
+      "morocco hot air balloons",
+      "hot air balloons morocco",
+      "Marrakech Hot Air Balloon",
+    ],
     featured: true,
   },
   {
     id: "agafay-desert-sunset",
     slug: "agafay-desert-sunset-dinner",
-    title: "Agafay Desert Sunset and Moroccan Dinner",
+    title: "Agafay Desert Sunset",
     shortTitle: "Agafay Sunset Dinner",
     category: "Desert evening",
     eyebrow: "An evening beyond the city",
@@ -223,6 +228,13 @@ export const marrakechActivities: MarrakechActivity[] = [
       description:
         "Spend an evening outside Marrakech with sunset views, Moroccan dinner and transfers to a desert camp in the Agafay landscape.",
     },
+    keywords: [
+      "agafay desert sunset camel ride and dinner",
+      "agafay sunset dinner",
+      "agafay desert camp",
+      "excursions agafay desert",
+      "camel ride in agafay desert",
+    ],
     featured: false,
   },
   {
@@ -334,6 +346,11 @@ export const marrakechActivities: MarrakechActivity[] = [
       description:
         "Walk through Marrakech Medina with a private local guide and visit historic streets, artisan quarters, souks and major landmarks.",
     },
+    keywords: [
+      "marrakech medina tour",
+      "marrakech medina souks guided walking tour",
+      "marrakech medina walking tour",
+    ],
     featured: false,
   },
   {
@@ -448,7 +465,130 @@ export const marrakechActivities: MarrakechActivity[] = [
       description:
         "Prepare Moroccan recipes with a local cook in Marrakech, learn about herbs and spices, and enjoy the meal made during the class.",
     },
+    keywords: [
+      "moroccan cooking spices",
+      "moroccan cooking class marrakech",
+      "raditional Moroccan Cooking",
+      "cooking class marrakech morocco",
+    ],
     featured: false,
+  },
+  {
+    id: "full-day-trip-marrakech",
+    slug: "full-day-trip-in-marrakech-morocco",
+    title: "Full Day Trip in Marrakech, Morocco",
+    shortTitle: "Full Day Trip in Marrakech",
+    category: "City tours and sightseeing",
+    eyebrow: "Discover the best of the Red City in one day",
+    duration: "8 hours",
+    location: "Marrakech",
+    pickup: "Hotel or riad pickup in Marrakech",
+    format: "Small-group or private tour",
+    image: "/personel/marakech.jpeg",
+    imageAlt:
+      "Full day trip in Marrakech visiting Majorelle Garden, Bahia Palace and the Medina",
+    excerpt:
+      "Spend a full day exploring the most popular sights in Marrakech, from the historic Medina and palaces to the vibrant souks and gardens, with a knowledgeable local guide.",
+    overview: [
+      "Marrakech is home to some of Morocco's most iconic landmarks, packed into a walkable historic center and a few short drives away.",
+      "This full day trip is designed to cover the city's most visited attractions in a single, well-organized itinerary, guided by a local expert who knows the best times to beat the crowds.",
+      "The day combines imperial history, gardens, architecture and the sensory experience of the souks, with time built in for lunch and photos.",
+      "The itinerary can be adjusted for private groups who want to prioritize certain sites or add extra stops.",
+    ],
+    highlights: [
+      "Visit to Jemaa el-Fnaa square and the Koutoubia Mosque",
+      "Explore Bahia Palace and its ornate courtyards",
+      "Walk through the Saadian Tombs",
+      "Stroll the Majorelle Garden and Yves Saint Laurent Museum area",
+      "Discover the souks of the Marrakech Medina",
+      "Guided storytelling on Marrakech's imperial history",
+    ],
+    timeline: [
+      {
+        step: "01",
+        title: "Morning Pickup and Medina Start",
+        description:
+          "Meet your guide and begin at the heart of the Medina, near Jemaa el-Fnaa and the Koutoubia Mosque.",
+      },
+      {
+        step: "02",
+        title: "Palaces and Historic Sites",
+        description:
+          "Visit Bahia Palace and the Saadian Tombs, learning about Marrakech's Saadian and Alaouite history.",
+      },
+      {
+        step: "03",
+        title: "Gardens and Lunch Break",
+        description:
+          "Walk through the Majorelle Garden area and stop for lunch at a local restaurant or riad.",
+      },
+      {
+        step: "04",
+        title: "Souks and Free Time",
+        description:
+          "End the day wandering the souks of the Medina, with time for shopping and photos before drop-off.",
+      },
+    ],
+    included: [
+      "Licensed local guide",
+      "Hotel or riad pickup and drop-off",
+      "Entrance fees to main sites (unless stated otherwise)",
+      "Comfortable transportation between stops",
+    ],
+    excluded: [
+      "Lunch and drinks",
+      "Personal purchases and shopping",
+      "Tips and gratuities",
+      "Optional add-on activities",
+    ],
+    practicalInformation: [
+      {
+        label: "Best time to visit",
+        value: "Morning start recommended to avoid midday heat and crowds",
+      },
+      {
+        label: "Walking level",
+        value: "Moderate walking in the Medina, comfortable shoes recommended",
+      },
+      {
+        label: "Group type",
+        value: "Available as a small-group or fully private tour",
+      },
+    ],
+    faq: [
+      {
+        question: "What is included in a full day trip in Marrakech?",
+        answer:
+          "Most day trips include a local guide, transportation between sites and entrance fees to the main attractions. Lunch is usually not included unless specified.",
+      },
+      {
+        question: "What are the most popular places to visit in Marrakech?",
+        answer:
+          "The most visited sites include Jemaa el-Fnaa, the Koutoubia Mosque, Bahia Palace, the Saadian Tombs, Majorelle Garden and the souks of the Medina.",
+      },
+      {
+        question: "Is this tour private or shared?",
+        answer:
+          "Both options are available. Private tours offer a flexible itinerary, while shared tours join you with other travelers on a fixed schedule.",
+      },
+      {
+        question: "How much walking is involved?",
+        answer:
+          "The tour involves a moderate amount of walking, especially inside the Medina, where vehicles cannot enter.",
+      },
+    ],
+    seo: {
+      title: "Full Day Trip in Marrakech, Morocco | Best Sights & Sites",
+      description:
+        "Book a full day trip in Marrakech and discover the best day trips in Marrakech Morocco, including palaces, gardens, the Medina and souks with a local guide.",
+    },
+    keywords: [
+      "day trips in marrakech morocco",
+      "day trips in marrakech",
+      "best day trips in marrakech",
+      "day trip in marrakech",
+    ],
+    featured: true,
   },
 ];
 
