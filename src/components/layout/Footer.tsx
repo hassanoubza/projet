@@ -48,10 +48,9 @@ export default function Footer() {
             </Link>
 
             <p className="mt-2 max-w-sm text-sm leading-7 text-footer-muted sm:text-[15px] sm:leading-8">
-              Trips To Marrakech is a local Morocco tour operator creating
-              private tours, Sahara desert experiences and tailor-made journeys
-              across Marrakech, Fes, Merzouga, Chefchaouen and the Atlas
-              Mountains.
+              Trips To Marrakech offers unforgettable Morocco tours, Sahara
+              Desert experiences, and tailor-made journeys across Marrakech Fes
+              Merzouga, Chefchaouen the Atlas Mountains, and beyond
             </p>
 
             <div className=" flex justify-center sm:justify-start">

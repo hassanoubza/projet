@@ -4,8 +4,8 @@ import React from "react";
 
 import photo1 from "@/../public/personel/hassan.jpeg";
 import photo2 from "@/../public/personel/hassan2.jpeg";
-import photo3 from "@/../public/personel/hassan3.jpeg";
-import photo4 from "@/../public/personel/hassan4.jpeg";
+import photo3 from "@/../public/personel/hassan5.jpeg";
+import photo4 from "@/../public/personel/youssef.jpeg";
 
 type Photo = {
   id: number;

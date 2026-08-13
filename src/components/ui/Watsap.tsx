@@ -3,9 +3,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 export default function Whatsapp(): React.JSX.Element {
   const phoneNumber = "212643577845"; // Replace with your WhatsApp number (without '+' or spaces)
-  const message = encodeURIComponent(
-    "Hello, I would like to customize a Morocco tour.",
-  );
+  const message = "Hello Trips to Marrakesh I’m interested in visiting Morocco and would like to know more about your tours and packages. Could you please send me some information? Thank you!";
 
   return (
     <a
