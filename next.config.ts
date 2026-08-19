@@ -18,6 +18,8 @@ const nextConfig: NextConfig = {
 
   experimental: {
     staticGenerationMaxConcurrency: 2,
+    staticGenerationRetryCount: 3,
+    cpus: 2,
     optimizePackageImports: ["lucide-react"],
   },
 
