@@ -15,9 +15,26 @@ const nextConfig: NextConfig = {
     ],
     formats: ["image/avif", "image/webp"],
   },
+
   experimental: {
     staticGenerationMaxConcurrency: 2,
     optimizePackageImports: ["lucide-react"],
+  },
+
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.tripstomarrakech.com/",
+          },
+        ],
+        destination: "https://tripstomarrakech.com/:path*",
+        permanent: true,
+      },
+    ];
   },
 };
 
