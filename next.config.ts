@@ -30,7 +30,7 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: "host",
-            value: "www.tripstomarrakech.com/",
+            value: "www.tripstomarrakech.com",
           },
         ],
         destination: "https://tripstomarrakech.com/:path*",
