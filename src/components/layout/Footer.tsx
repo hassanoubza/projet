@@ -9,11 +9,11 @@ const TRIPADVISOR_URL ="https://www.tripadvisor.com/Attraction_Review-g293734-d3
 
 
 const FOOTER_TOURS = [
-  { href: "/tours/marrakech", label: "Tours from Marrakech" },
-  { href: "/tours/fes", label: "Tours from Fes" },
-  { href: "/tours/casablanca", label: "Tours from Casablanca" },
-  { href: "/tours/tangier", label: "Tours from Tangier" },
-  { href: "/tours/agadir", label: "Tours from Agadir" },
+  { href: "/tours/from/marrakech", label: "Tours from Marrakech" },
+  { href: "/tours/from/fes", label: "Tours from Fes" },
+  { href: "/tours/from/casablanca", label: "Tours from Casablanca" },
+  { href: "/tours/from/tangier", label: "Tours from Tangier" },
+  { href: "/tours/from/agadir", label: "Tours from Agadir" },
 ];
 
 
